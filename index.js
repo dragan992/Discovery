@@ -19,13 +19,15 @@ let selectedColor=null;
 
 let person={
     name:"Mosh",
-    age:30
+    age:30    
 };
+person["nepostojeciProperty"] = "IDK"
+console.log(person.name, person["age"], person["nepostojeciProperty"], "OVO ti je Objekat");
 
-console.log(person);
-
-let selectedColors=['red','blue']
+let selectedColors=['red','blue'];
 selectedColors[2]=1;
+
+selectedColors[5]="babylon"
 console.log(selectedColors);
 
 function greet (name, lastName) {
@@ -37,4 +39,22 @@ function square(number) {
     return number * number;
 }
 
-console.log(square(2));
+function square2(number) {
+    console.log(number * number, "Ovo pozivam iz square2 funckie");
+    return number* number;
+}
+
+const zbir = function(param1, param2) {
+  return para
+}
+
+square2(10);
+
+
+numba = 4;
+
+const vratiMiOvde = square2(11);
+
+console.log("VRATI MI OVDE", vratiMiOvde);
+
+console.log(square(2), "Ovo e square funckia");
