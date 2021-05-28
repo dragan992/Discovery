@@ -123,3 +123,5 @@ A pre poslednjeg navodnika ne ide \
 var myStr = "I am a \"double quoted\" string indside \" double quotes";
 
 console.log(myStr);
+
+// BRAVO MALENIII, SVAKA CAST, VIDIM DA SE RADI LEPO, KEEP GOING, YOU ARE DOING GREAT!!!
