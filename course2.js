@@ -60,8 +60,66 @@ var myVar = 87;
 myVar++;
 console.log(myVar);
 
+var ourDecimal = 5.7
 
+var myDecimal = 0.009
 
+//Sve sto ima decimale iza tacke smatra se decimalnim brojem
 
+//Mnozenje decimalnih brojeva radi se ito sa * kao i za obicne brojeve
 
+//Deljenje decimalnih brojeva ide sa / i dobije se kolicnik tj. quotient
 
+ var remainder;
+ remainder = 11 % 3;
+ console.log(remainder);
+
+ //Sledi slozeno sabiranje sa skracenicom umesto a = a + 12 npr.
+
+ var a =3;
+ var b = 17;
+ var c = 12;
+
+ a += 12;
+ b += 9;
+ c += 7;
+
+console.log(c);
+
+//Slozeno oduzimanje
+
+var a = 11;
+var b = 9;
+var c = 3;
+
+//Resenje u skracenom obliku od a = a - 6
+
+a -= 6;
+b -= 15;
+c -= 1;
+
+console.log(b);
+
+//Mnozenje ista prica
+
+var a = 5;
+var b = 12;
+var c = 4.6;
+
+//Umesto a = a * 5; bice a *= 5
+
+a *= 5;
+b *= 3;
+c *= 10;
+
+console.log(c);
+
+/*
+Dupli stringovi (string unutar stringa)
+Nakon prvih navodnika ", pre svakog sledeceg navodnika mora biti znak \, a nikako / (nece raditi u konzoli)
+A pre poslednjeg navodnika ne ide \ 
+
+*/
+var myStr = "I am a \"double quoted\" string indside \" double quotes";
+
+console.log(myStr);
