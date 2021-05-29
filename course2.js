@@ -124,4 +124,8 @@ var myStr = "I am a \"double quoted\" string indside \" double quotes";
 
 console.log(myStr);
 
-// BRAVO MALENIII, SVAKA CAST, VIDIM DA SE RADI LEPO, KEEP GOING, YOU ARE DOING GREAT!!!
+//Drugi nacin - kraci i bolji
+
+var myStr1 = 'I am a "double quoted" string inside " double quotes';
+
+console.log(myStr1);
