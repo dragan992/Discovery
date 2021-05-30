@@ -129,3 +129,74 @@ console.log(myStr);
 var myStr1 = 'I am a "double quoted" string inside " double quotes';
 
 console.log(myStr1);
+
+/****
+ CODE OUTPUT
+\' single quote
+\" doube quote
+\\ backslash
+\n newline
+\r carriage return
+\t tab
+\b backspace
+\form feed
+
+NA OVAJ NACIN PONISTAVAMO VREDNOST NEKIH FUNKCIJA 
+ILI PRELAZIMO U NOVI RED SA KODOM, UBACUJEMO TAB ITD...
+ ****/
+
+
+var myStr2 = "FirstLine\n\t\\SecondLine\nThirdLine"
+
+console.log(myStr2);
+
+var mojString = "FirstLine\n\t\\SecondLine\nThirdLine"
+
+console.log(mojString);
+
+var mojaProba = "FirstLine\n\t\\SecondLine\n\fThirdLine";
+
+//PITANJE za Srkija, sta radi \f? Ne ucocavam da ista menja?!
+
+console.log(mojaProba);
+
+//Concatenating Strings-spajanje stringova sa + opcijom
+
+var ourStr = "I come first. " + "I come second.";
+
+//Obavezno space posle first. Da bismo razdvojili te 2 reci u konzoli!
+
+console.log(ourStr);
+
+var test2 = "This is the start." + "This is the end.";
+
+console.log(test2);
+
+//Spajanje stringova sa += (kao brojevi)
+
+var spajamStr = "I come first. ";
+spajamStr += "I come second.";
+
+console.log(spajamStr);
+
+var recenice = "This is the first sentence. ";
+recenice += "This is the second sentence.";
+
+console.log(recenice);
+
+//Ovo iznad mi nije bas leglo u glavi za razliku od brojeva
+
+
+//Konstruisanje stringova varijablama
+
+var naseIme = "freeCodeCamp";
+var nasString = "Hello, our name is " + naseIme + ", how are you?"
+
+console.log(nasString);
+
+var mojeIme = "Beau";
+var mojStringic = "Moje ime je " + mojeIme + " i ja sam dobro!";
+
+console.log(mojStringic);
+
+//Appendin variables to strings
