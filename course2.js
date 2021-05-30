@@ -199,4 +199,52 @@ var mojStringic = "Moje ime je " + mojeIme + " i ja sam dobro!";
 
 console.log(mojStringic);
 
-//Appendin variables to strings
+//Appending variables to strings - dodavanje stringova varijablama\
+//Primer 1 i 2
+var anAdjective = "awesome!";
+var nekiString = "freeCodeCamp is ";
+
+nekiString += anAdjective;
+
+console.log(nekiString);
+
+var someAdjective = "worthwhile";
+var randomStr = "Learning to code is ";
+
+randomStr += someAdjective;
+
+console.log(randomStr);
+
+//Find Length of String - otkrivanje duzine stringa
+
+var firstNameLength = 0;
+var firstName = "Ada";
+
+firstNameLength = firstName.length;
+
+console.log(firstNameLength);
+
+var lastNameLength = 0;
+var lastName = "Lovelace";
+
+lastNameLength = lastName.length;
+
+console.log(lastNameLength);
+
+//Bracket Notation, znaci ovo []-to Find First Character in String
+//Broj u zagradi [0], kako bismo pronasli prvi karakter u reci
+
+var firstLetterOfFirstName = "";
+var firstNamee = "Adica"
+
+firstLetterOfFirstName = firstNamee [0];
+
+console.log(firstLetterOfFirstName);
+
+var firstLetterOfLastName = "";
+var lastNamee = "lovelace";
+
+firstLetterOfLastName = lastNamee [0];
+
+console.log(firstLetterOfLastName);
+
