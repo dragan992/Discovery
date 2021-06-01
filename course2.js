@@ -139,7 +139,7 @@ console.log(myStr1);
 \r carriage return
 \t tab
 \b backspace
-\form feed
+\f form feed
 
 NA OVAJ NACIN PONISTAVAMO VREDNOST NEKIH FUNKCIJA 
 ILI PRELAZIMO U NOVI RED SA KODOM, UBACUJEMO TAB ITD...
@@ -156,7 +156,7 @@ console.log(mojString);
 
 var mojaProba = "FirstLine\n\t\\SecondLine\n\fThirdLine";
 
-//PITANJE za Srkija, sta radi \f? Ne ucocavam da ista menja?!
+//PITANJE za Srkija, sta radi \f? Ne uocavam da ista menja?!
 
 console.log(mojaProba);
 
@@ -282,5 +282,58 @@ var stringBlaBla = 'Idu slon i slonce "Jedu cvarke" puse duvan';
 console.log(stringBlaBla);
 
 var glupaviString = "Idu dva mrava\"I odose\" Pa dodjose";
+
 console.log(glupaviString);
 
+//Podsetnik escape sequences in strings
+
+var testString = "Prva linija\n\n\t Druga linija i tab\n\\''Treca linija sa navodnicima i backslash\\";
+
+console.log(testString);
+
+//Podsetink spajanje stringova (concatenating) with +
+
+var nekiStr = "I come first " + "I come second";
+
+console.log(nekiStr);
+
+//Podsetnik spajanje stringova sa +=
+
+var Blabla = "Zovem se Gringo ";
+Blabla += "i mnogo sam kul lik";
+
+console.log(Blabla);
+
+//Podsetnik constructing strings with variables
+
+var nekiLik = "Dragan";
+var toSamJa = "Moje ime je " + nekiLik + " i najjaci sam";
+
+console.log(toSamJa);
+
+//Podsetnik appendix variables to strings
+
+var kompliment = " najkul stvar ikad!";
+var stotiString = "programiranje je";
+
+stotiString += kompliment
+
+console.log(stotiString);
+
+//Pronalazenje duzine stringa
+
+var duzinaStringa = "Ivana";
+duzinaStringa = duzinaStringa.length;
+
+console.log(duzinaStringa);
+
+//Bracket Notation (broj u zagradi []) - pronaci prvi karakter u reci npr.
+
+var prvoSlovoPrezimena = "";
+prezime = "Radosavljevic";
+
+prvoSlovoPrezimena = prezime [0];
+
+console.log(prvoSlovoPrezimena);
+
+//SVE "OBNOVLJENO"
