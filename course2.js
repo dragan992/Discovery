@@ -237,7 +237,7 @@ console.log(lastNameLength);
 var firstLetterOfFirstName = "";
 var firstNamee = "Adica"
 
-firstLetterOfFirstName = firstNamee [0];
+firstLetterOfFirstName = firstNamee[0];
 
 console.log(firstLetterOfFirstName);
 
@@ -247,4 +247,40 @@ var lastNamee = "lovelace";
 firstLetterOfLastName = lastNamee [0];
 
 console.log(firstLetterOfLastName);
+
+var prvoSlovoImena = "";
+var ime = "Ivana";
+
+prvoSlovoImena = ime [0];
+
+console.log(prvoSlovoImena);
+
+//Podsecanje na incrementing numbers 
+
+var nekiBroj;
+nekiBroj = 88;
+nekiBroj++;
+console.log(nekiBroj);
+
+//Podsecanje na remainder
+
+var remainder1;
+remainder1 = 20 % 3;
+console.log(remainder1);
+
+//Podsetnik slozeno sabiranje
+ var p = 100;
+ var m = 200;
+
+ p += 100;
+
+ console.log(p);
+
+ //Podsetnik string u stringu 2 nacina
+
+var stringBlaBla = 'Idu slon i slonce "Jedu cvarke" puse duvan';
+console.log(stringBlaBla);
+
+var glupaviString = "Idu dva mrava\"I odose\" Pa dodjose";
+console.log(glupaviString);
 
