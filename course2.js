@@ -329,10 +329,10 @@ console.log(duzinaStringa);
 
 //Bracket Notation (broj u zagradi []) - pronaci prvi karakter u reci npr.
 
-var prvoSlovoPrezimena = "";
+var prvoSlovoPrezimenaSjebac = "";
 prezime = "Radosavljevic";
 
-prvoSlovoPrezimena = prezime [0]; //Bato ne diraj ovo
+prvoSlovoPrezimenaSjebac = prezime [0]; //Bato ne diraj ovo
 //sala mala
 
 console.log(prvoSlovoPrezimena);
