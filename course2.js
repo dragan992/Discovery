@@ -333,6 +333,7 @@ var prvoSlovoPrezimenaSjebac = "";
 prezime = "Radosavljevic";
 
 prvoSlovoPrezimenaSjebac = prezime[0];
+
 //sala mala
 
 console.log(prvoSlovoPrezimena);
@@ -340,3 +341,4 @@ console.log(prvoSlovoPrezimena);
 //SVE "OBNOVLJENO"
 
 // SUTRA RADIMO NA OVOM KOMENTARU DA IZAZOVEMO KONFLIKT
+let testingConflicts;
