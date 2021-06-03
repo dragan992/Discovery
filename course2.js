@@ -332,7 +332,8 @@ console.log(duzinaStringa);
 var prvoSlovoPrezimena = "";
 prezime = "Radosavljevic";
 
-prvoSlovoPrezimena = prezime[0];
+prvoSlovoPrezimena = prezime [0]; //Bato ne diraj ovo
+//sala mala
 
 console.log(prvoSlovoPrezimena);
 
