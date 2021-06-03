@@ -320,7 +320,7 @@ stotiString += kompliment
 
 console.log(stotiString);
 
-//Pronalazenje duzine stringa
+//Pronalazenje duzine stringaa
 
 var duzinaStringa = "Ivana";
 duzinaStringa = duzinaStringa.length;
