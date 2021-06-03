@@ -338,3 +338,5 @@ prvoSlovoPrezimenaSjebac = prezime[0];
 console.log(prvoSlovoPrezimena);
 
 //SVE "OBNOVLJENO"
+
+// SUTRA RADIMO NA OVOM KOMENTARU DA IZAZOVEMO KONFLIKT
