@@ -335,6 +335,76 @@ prezime = "Radosavljevic";
 prvoSlovoPrezimenaSjebac = prezime[0];
 //sala mala
 
-console.log(prvoSlovoPrezimena);
+console.log(prvoSlovoPrezimenaSjebac);
 
 //SVE "OBNOVLJENO"
+
+var mojePrezime = "Maric";
+mojePrezimeLength = mojePrezime.length;
+
+console.log(mojePrezimeLength);
+
+//Nastavak 4/6/2021
+
+//String Immutability - ne mogu se menjati kad se kreiraju
+
+var myStr3 = "Jello World";
+
+myStr3[0] = "H"; //Ovo nece promeniti slovo 
+
+myStr3 = "Hello World"  //Ovo hoce
+
+console.log(myStr3);
+
+/*Bracket Notation to Finda Nth Character in String -
+isto kao i trazenje bilo kog slova u nizu [0]-za prvo slovo
+[1]- za drugo itd.
+*/
+
+/*Bracket Notation to Find Last Charaacter in String,
+ nalazenje zadnjeg karaktera u stringu pomocu
+  funkcije length */
+
+var imeProvajdera = "Mts";
+zadnjeSlovoImenaProvajdera = imeProvajdera[imeProvajdera.length - 1];
+
+console.log(zadnjeSlovoImenaProvajdera);
+
+var imeKomsije = "Goran";
+zadnjeSlovoImenaKomsije = imeKomsije[imeKomsije.length - 1];
+
+console.log(zadnjeSlovoImenaKomsije);
+
+var prezimeKomsije = "Ivkovic";
+zadnjeSlovoPrezimenaKomsije = prezimeKomsije[prezimeKomsije.length - 1];
+
+console.log(zadnjeSlovoPrezimenaKomsije);
+
+//Bracket Notation to Find Nth - to - Last Character in String
+//Nacin da nadjes predzadnje slovo ili ono pre njega npr.
+
+var imeUbice = "nepoznat";
+predzadnjeSlovoImenaUbice = imeUbice[imeUbice.length - 2];
+
+console.log(predzadnjeSlovoImenaUbice);
+
+var imeKera = "Dodzara";
+treceSlovoOdKrajaImenaKera = imeKera[imeKera.length - 3];
+
+console.log(treceSlovoOdKrajaImenaKera);
+
+/*Word Blanks (funkcija-nisu do sad radjene)
+URNEBESNA KOMPLIKACIJA
+*/
+function worldBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+
+var result = "";
+result += "The" + " " + myAdjective + " " + myNoun + " "  + myVerb + " " + "to the store" + " " + myAdverb;
+return result;
+
+}
+
+console.log(worldBlanks("dog", "big", "ran", "quickly"));
+console.log(worldBlanks("bike", "slow", "flew", "slowly"));
+
+
