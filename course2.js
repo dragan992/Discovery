@@ -408,3 +408,36 @@ console.log(worldBlanks("dog", "big", "ran", "quickly"));
 console.log(worldBlanks("bike", "slow", "flew", "slowly"));
 
 
+//Povratak otpisanih
+
+let imeee = "Dragan";
+
+console.log(imeee);
+
+//VARIJABLE:
+//Name ne moze biti rezervrd keyword (let, var, else, if...izbacice gresku)
+//Mora biti smisleno (ne moze biti a1, b8)
+//Ne moze poceti sa brojem (1imee)
+//Ne mogu sadrzati space ili (-)
+//Case-sensitive su
+
+let preZime1 = "Suljic";
+let ime2 = "Suljo";
+
+//KONSTANTE
+
+let kamatnaStopa = 0.3;
+kamatnaStopa = 1; //na ovaj nacin moze se promeniti varijabla
+
+console.log(kamatnaStopa);
+
+const kamatnaStopa1 = 0.5;
+/*kamatnaStopa1 = 1; ne mozemo reasajnovati konstantu-ovo ne radi
+Ako hocemo da menjamo varijablu koristimo let, nikako const */
+//console.log(kamatnaStopa1);
+
+
+
+
+
+
