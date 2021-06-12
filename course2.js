@@ -436,8 +436,30 @@ const kamatnaStopa1 = 0.5;
 Ako hocemo da menjamo varijablu koristimo let, nikako const */
 //console.log(kamatnaStopa1);
 
+/*PRIMITIVE TYPES
+1.Primitives (Value Types) - String, Number, Boolean, Undefined, Null
+2.Reference Types
+*/
 
+let nadimak = "Srki"; //String Literal
+let godiste = 92; //Number Literal
+let punoletan = true; //Boolean literal (moze biti i false)
+let nemamPojma = undefined; //Undefined je i ako ne definisemo (let nemam pojma;)
+let odabranaBoja = null; //Koristimo kad hocemo da ponistimo vrednost varijable
 
+//Tipa (let odabranaBoja = "red" i posle kad hocemo u kodu da ponistimo na dalje, samo stavimo null)
 
+//JS JE DYNAMIC LANGUAGUE (postoje Static-kad se deklarise varijabla, ne moze se menjati u buducnosti i Dynamic-moze)
 
+//Objects (koristi se : umesto = i idu {})
+
+let osoba = {
+imeOsobe: "Ivan",
+godineOsobe: 30
+};
+
+osoba.imeOsobe = "Goran"; //Dot Notation za promenu varijable
+osoba['imeOsobe'] = 'Marija'; //Bracket Notation
+
+console.log(osoba.imeOsobe);
 
