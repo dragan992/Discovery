@@ -463,3 +463,68 @@ osoba['imeOsobe'] = 'Marija'; //Bracket Notation
 
 console.log(osoba.imeOsobe);
 
+//ARRAYS - Mosh (nizovi) [] - array literal
+//Da bismo nasli odredjen clan u nizu console.log(selectedColor[0]);
+
+let selectedColors = ['red', 'blue'];
+selectedColors[2] = 'green';
+selectedColors[3] = 1;
+
+console.log(selectedColors[0]); //prikazace red
+console.log(selectedColors[2]); //prikazace dodatu zelenu
+console.log(selectedColors[3]); //prikazace keca
+console.log(selectedColors); //prikazace sve 3 boje i keca
+//Ako hocemo duzinu niza da vidimo samo dodamo .length
+
+console.log(selectedColors.length);
+
+//FUNCTIONS {}
+
+function greet() {
+console.log('Hello World');  
+}
+
+greet();
+
+//Pitanje za Srkija - Zasto f-ja radi tek posle greet()???
+
+function pozdrav (ime, prrezime) {
+console.log('De si ' + ime + " " + prrezime);
+}
+
+pozdrav("Djuro", "Djuric"); //Djuro je argument(value od parameter)
+       //Ime je parameter (funkcija moze imati vise parametara)
+pozdrav("Pero", "Peric"); //Prikazace pozdrave i Djuri i Peri
+
+//Trebace nam argument i za prrezime - dodacu prezime kraj Djuro i Pero
+
+//DEFAULT VALUE OF VARIABLES IN JS IS UNDEFINED !!!
+//Template literals koristimo za skracivanje koda (kasnije)
+
+
+//Types of functions-zadnje poglavlje u Basics
+
+//This function is performing a task
+
+function pozdraviti (nadiMak, preZimak) {
+
+  console.log("Dje si" + nadiMak + " " +  preZimak);
+}
+
+//This function is calculating a value - kvadrat od 2
+
+function kvadrat(brojic) {
+return brojic * brojic
+}
+
+let brojic = kvadrat(2);
+console.log(brojic);
+
+//A moze i ovako bez let brojic = kvadrat (2);
+
+console.log(kvadrat(2));//kvadrat(2) je argument
+
+//Ovde iznad imamo 2 function call-a (cons.log i kvadrat(2))
+
+//JS operators (ARITHMETIC,ASSIGNMENT,COMPARISON,LOGICAL,BITWISE)
+
