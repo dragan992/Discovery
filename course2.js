@@ -528,3 +528,16 @@ console.log(kvadrat(2));//kvadrat(2) je argument
 
 //JS operators (ARITHMETIC,ASSIGNMENT,COMPARISON,LOGICAL,BITWISE)
 
+// 1. Arithmetic operators (performing calculations)
+
+let x = 10;
+let y = 3;
+
+console.log(x + y); //Expression in JS is sth.that produces a value
+console.log(x - y); 
+console.log(x * y); 
+console.log(x / y); 
+console.log(x % y); 
+console.log(x ** y); //EXPONENTINATION (10 na treci)
+
+//KOMENTARISANJE VECEG KODA CTRL + / (MARKIRATI SVE STO ZELIS)
