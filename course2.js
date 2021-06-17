@@ -336,9 +336,283 @@ prvoSlovoPrezimenaSjebac = prezime[0];
 
 //sala mala
 
-console.log(prvoSlovoPrezimena);
+console.log(prvoSlovoPrezimenaSjebac);
 
 //SVE "OBNOVLJENO"
 
-// SUTRA RADIMO NA OVOM KOMENTARU DA IZAZOVEMO KONFLIKT
-let testingConflicts;
+var mojePrezime = "Maric";
+mojePrezimeLength = mojePrezime.length;
+
+console.log(mojePrezimeLength);
+
+//Nastavak 4/6/2021
+
+//String Immutability - ne mogu se menjati kad se kreiraju
+
+var myStr3 = "Jello World";
+
+myStr3[0] = "H"; //Ovo nece promeniti slovo 
+
+myStr3 = "Hello World"  //Ovo hoce
+
+console.log(myStr3);
+
+/*Bracket Notation to Finda Nth Character in String -
+isto kao i trazenje bilo kog slova u nizu [0]-za prvo slovo
+[1]- za drugo itd.
+*/
+
+/*Bracket Notation to Find Last Charaacter in String,
+ nalazenje zadnjeg karaktera u stringu pomocu
+  funkcije length */
+
+var imeProvajdera = "Mts";
+zadnjeSlovoImenaProvajdera = imeProvajdera[imeProvajdera.length - 1];
+
+console.log(zadnjeSlovoImenaProvajdera);
+
+var imeKomsije = "Goran";
+zadnjeSlovoImenaKomsije = imeKomsije[imeKomsije.length - 1];
+
+console.log(zadnjeSlovoImenaKomsije);
+
+var prezimeKomsije = "Ivkovic";
+zadnjeSlovoPrezimenaKomsije = prezimeKomsije[prezimeKomsije.length - 1];
+
+console.log(zadnjeSlovoPrezimenaKomsije);
+
+//Bracket Notation to Find Nth - to - Last Character in String
+//Nacin da nadjes predzadnje slovo ili ono pre njega npr.
+
+var imeUbice = "nepoznat";
+predzadnjeSlovoImenaUbice = imeUbice[imeUbice.length - 2];
+
+console.log(predzadnjeSlovoImenaUbice);
+
+var imeKera = "Dodzara";
+treceSlovoOdKrajaImenaKera = imeKera[imeKera.length - 3];
+
+console.log(treceSlovoOdKrajaImenaKera);
+
+/*Word Blanks (funkcija-nisu do sad radjene)
+URNEBESNA KOMPLIKACIJA
+*/
+function worldBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+
+var result = "";
+result += "The" + " " + myAdjective + " " + myNoun + " "  + myVerb + " " + "to the store" + " " + myAdverb;
+return result;
+
+}
+
+console.log(worldBlanks("dog", "big", "ran", "quickly"));
+console.log(worldBlanks("bike", "slow", "flew", "slowly"));
+
+
+//Povratak otpisanih
+
+let imeee = "Dragan";
+
+console.log(imeee);
+
+//VARIJABLE:
+//Name ne moze biti rezervrd keyword (let, var, else, if...izbacice gresku)
+//Mora biti smisleno (ne moze biti a1, b8)
+//Ne moze poceti sa brojem (1imee)
+//Ne mogu sadrzati space ili (-)
+//Case-sensitive su
+
+let preZime1 = "Suljic";
+let ime2 = "Suljo";
+
+//KONSTANTE
+
+let kamatnaStopa = 0.3;
+kamatnaStopa = 1; //na ovaj nacin moze se promeniti varijabla
+
+console.log(kamatnaStopa);
+
+const kamatnaStopa1 = 0.5;
+/*kamatnaStopa1 = 1; ne mozemo reasajnovati konstantu-ovo ne radi
+Ako hocemo da menjamo varijablu koristimo let, nikako const */
+//console.log(kamatnaStopa1);
+
+/*PRIMITIVE TYPES
+1.Primitives (Value Types) - String, Number, Boolean, Undefined, Null
+2.Reference Types
+*/
+
+let nadimak = "Srki"; //String Literal
+let godiste = 92; //Number Literal
+let punoletan = true; //Boolean literal (moze biti i false)
+let nemamPojma = undefined; //Undefined je i ako ne definisemo (let nemam pojma;)
+let odabranaBoja = null; //Koristimo kad hocemo da ponistimo vrednost varijable
+
+//Tipa (let odabranaBoja = "red" i posle kad hocemo u kodu da ponistimo na dalje, samo stavimo null)
+
+//JS JE DYNAMIC LANGUAGUE (postoje Static-kad se deklarise varijabla, ne moze se menjati u buducnosti i Dynamic-moze)
+
+//Objects (koristi se : umesto = i idu {})
+
+let osoba = {
+imeOsobe: "Ivan",
+godineOsobe: 30
+};
+
+osoba.imeOsobe = "Goran"; //Dot Notation za promenu varijable
+osoba['imeOsobe'] = 'Marija'; //Bracket Notation
+
+console.log(osoba.imeOsobe);
+
+//ARRAYS - Mosh (nizovi) [] - array literal
+//Da bismo nasli odredjen clan u nizu console.log(selectedColor[0]);
+
+let selectedColors = ['red', 'blue'];
+selectedColors[2] = 'green';
+selectedColors[3] = 1;
+
+console.log(selectedColors[0]); //prikazace red
+console.log(selectedColors[2]); //prikazace dodatu zelenu
+console.log(selectedColors[3]); //prikazace keca
+console.log(selectedColors); //prikazace sve 3 boje i keca
+//Ako hocemo duzinu niza da vidimo samo dodamo .length
+
+console.log(selectedColors.length);
+
+//FUNCTIONS {}
+
+function greet() {
+console.log('Hello World');  
+}
+
+greet();
+
+//Pitanje za Srkija - Zasto f-ja radi tek posle greet()???
+
+function pozdrav (ime, prrezime) {
+console.log('De si ' + ime + " " + prrezime);
+}
+
+pozdrav("Djuro", "Djuric"); //Djuro je argument(value od parameter)
+       //Ime je parameter (funkcija moze imati vise parametara)
+pozdrav("Pero", "Peric"); //Prikazace pozdrave i Djuri i Peri
+
+//Trebace nam argument i za prrezime - dodacu prezime kraj Djuro i Pero
+
+//DEFAULT VALUE OF VARIABLES IN JS IS UNDEFINED !!!
+//Template literals koristimo za skracivanje koda (kasnije)
+
+
+//Types of functions-zadnje poglavlje u Basics
+
+//This function is performing a task
+
+function pozdraviti (nadiMak, preZimak) {
+
+  console.log("Dje si" + nadiMak + " " +  preZimak);
+}
+
+//This function is calculating a value - kvadrat od 2
+
+function kvadrat(brojic) {
+return brojic * brojic
+}
+
+let brojic = kvadrat(2);
+console.log(brojic);
+
+//A moze i ovako bez let brojic = kvadrat (2);
+
+console.log(kvadrat(2));//kvadrat(2) je argument
+
+//Ovde iznad imamo 2 function call-a (cons.log i kvadrat(2))
+
+//JS operators (ARITHMETIC,ASSIGNMENT,COMPARISON,LOGICAL,BITWISE)
+
+
+// 1. ARITHMETIC operators (performing calculations)
+
+let x = 10;
+let y = 3;
+
+console.log(x + y); //addition - Expression in JS is sth.that produces a  value
+console.log(x - y); //subtraction
+console.log(x * y); //multiplication
+console.log(x / y); //division
+console.log(x % y); //remainder of division
+console.log(x ** y); //EXPONENTINATION (10 na treci)
+
+//KOMENTARISANJE VECEG KODA CTRL + / (MARKIRATI SVE STO ZELIS)
+
+//Imamo jos i INCREMENT I DECREMENT operators
+
+//INCREMENT (++)- zavisno gde stavimo ++ tako ce se ponasati
+
+console.log(++x); //Dobicemo 11 odmah
+
+//Ako prvo stavimo x pa ++ ostace 10 u cons.ali se vr. uvecala +1
+//Pa kad opet uradimo cons.log od x pisace 11
+
+console.log(x++);//Dobicemo 11 (jer smo gore uvecali +1),ali je vr uvecana za jos +1
+console.log(x);//Sad se vidi prava vr.12 (10 + 1 gore + 1 sad)
+
+//DECREMENT (--) - umanjenje vrednosti (isto kao i uvecanje)
+
+console.log(--x); //Bice 11 jer 12-1 (12 zbog gore promene vr.)
+
+console.log(x--);//Bice 11 (trenutno), ali u sl.koraku vr.se prikazuje
+console.log(x);//Prava vrednost je 10
+
+
+//2.ASSIGNMENT operators (tipa +=, -=, *=, /=)
+
+let q = 10;
+
+q = q + 5; //Ovo isto mozemo napisati i ovako
+q += 5;
+
+q = q * 3;
+q *= 3;
+
+
+//3.COMPARISON operators (poredjenje varijable s necim)
+
+//Relational operators (odnosni operatori)
+
+let w = 1
+console.log(w > 0); //Pisace true (boolean)
+console.log(w >= 1); //Pisace true opet (boolean)
+console.log(w < 1); //Pisace false (boolean)
+console.log(w <= 1); //Pisace true (boolean)
+
+//Equality operators (operatori jednakosti)
+
+console.log(x === 1); //jednakost po tipu i vrednosti
+console.log(x !== 1);//ako zelimo utvrditi da x nije = 1
+
+
+//3a.EQUALITY operators (strict and lose equality operators )
+
+//Strict equality operator (Type + Value poredi) ===
+console.log(1 === 1); //Tip-number (ista), value-1 (ista)-true
+console.log('1' === 1);//String-number (false)
+
+//Lose equality operator (samo Value poredi) ==
+/*Ako se Type ne podudara, konvertovace ono sto je desno 
+u Type od levog u zagradi */
+
+console.log(1 == 1);
+console.log('1' == 1);//on ovo vidi kao ('1' == '1')
+console.log(true == 1);//konvertuje 1 u boolean (true = true)
+
+
+//3b. TERNERY operators (conditional-uslovni)
+
+/*Ako musterija ima preko 100 poena, imace 'gold' status,
+u drugom slucaju imace 'silver' status.*/
+
+let poeni = 110;
+
+let tip = poeni > 100 ? 'gold' : 'silver'; //ZAPAMTITI OVAJ KORAK
+
+console.log(tip);
