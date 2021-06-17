@@ -528,16 +528,90 @@ console.log(kvadrat(2));//kvadrat(2) je argument
 
 //JS operators (ARITHMETIC,ASSIGNMENT,COMPARISON,LOGICAL,BITWISE)
 
-// 1. Arithmetic operators (performing calculations)
+
+// 1. ARITHMETIC operators (performing calculations)
 
 let x = 10;
 let y = 3;
 
-console.log(x + y); //Expression in JS is sth.that produces a value
-console.log(x - y); 
-console.log(x * y); 
-console.log(x / y); 
-console.log(x % y); 
+console.log(x + y); //addition - Expression in JS is sth.that produces a  value
+console.log(x - y); //subtraction
+console.log(x * y); //multiplication
+console.log(x / y); //division
+console.log(x % y); //remainder of division
 console.log(x ** y); //EXPONENTINATION (10 na treci)
 
 //KOMENTARISANJE VECEG KODA CTRL + / (MARKIRATI SVE STO ZELIS)
+
+//Imamo jos i INCREMENT I DECREMENT operators
+
+//INCREMENT (++)- zavisno gde stavimo ++ tako ce se ponasati
+
+console.log(++x); //Dobicemo 11 odmah
+
+//Ako prvo stavimo x pa ++ ostace 10 u cons.ali se vr. uvecala +1
+//Pa kad opet uradimo cons.log od x pisace 11
+
+console.log(x++);//Dobicemo 11 (jer smo gore uvecali +1),ali je vr uvecana za jos +1
+console.log(x);//Sad se vidi prava vr.12 (10 + 1 gore + 1 sad)
+
+//DECREMENT (--) - umanjenje vrednosti (isto kao i uvecanje)
+
+console.log(--x); //Bice 11 jer 12-1 (12 zbog gore promene vr.)
+
+console.log(x--);//Bice 11 (trenutno), ali u sl.koraku vr.se prikazuje
+console.log(x);//Prava vrednost je 10
+
+
+//2.ASSIGNMENT operators (tipa +=, -=, *=, /=)
+
+let q = 10;
+
+q = q + 5; //Ovo isto mozemo napisati i ovako
+q += 5;
+
+q = q * 3;
+q *= 3;
+
+
+//3.COMPARISON operators (poredjenje varijable s necim)
+
+//Relational operators (odnosni operatori)
+
+let w = 1
+console.log(w > 0); //Pisace true (boolean)
+console.log(w >= 1); //Pisace true opet (boolean)
+console.log(w < 1); //Pisace false (boolean)
+console.log(w <= 1); //Pisace true (boolean)
+
+//Equality operators (operatori jednakosti)
+
+console.log(x === 1); //jednakost po tipu i vrednosti
+console.log(x !== 1);//ako zelimo utvrditi da x nije = 1
+
+
+//3a.EQUALITY operators (strict and lose equality operators )
+
+//Strict equality operator (Type + Value poredi) ===
+console.log(1 === 1); //Tip-number (ista), value-1 (ista)-true
+console.log('1' === 1);//String-number (false)
+
+//Lose equality operator (samo Value poredi) ==
+/*Ako se Type ne podudara, konvertovace ono sto je desno 
+u Type od levog u zagradi */
+
+console.log(1 == 1);
+console.log('1' == 1);//on ovo vidi kao ('1' == '1')
+console.log(true == 1);//konvertuje 1 u boolean (true = true)
+
+
+//3b. TERNERY operators (conditional-uslovni)
+
+/*Ako musterija ima preko 100 poena, imace 'gold' status,
+u drugom slucaju imace 'silver' status.*/
+
+let poeni = 110;
+
+let tip = poeni > 100 ? 'gold' : 'silver'; //ZAPAMTITI OVAJ KORAK
+
+console.log(tip);
