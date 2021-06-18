@@ -615,3 +615,40 @@ let poeni = 110;
 let tip = poeni > 100 ? 'gold' : 'silver'; //ZAPAMTITI OVAJ KORAK
 
 console.log(tip);
+
+
+//4.LOGICAL operators - with Non-booleans 
+
+//4a.Logical AND (&&) operator
+//Returns TRUE if both operands are TRUE
+
+console.log(true && true); //bice true samo ako su oba true
+console.log(false && false);//bice false
+console.log(true && false);//bice false
+
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome && goodCreditScore;
+
+console.log(eligibleForLoan);
+
+//4b.Logical OR (||) operator
+//Returns TRUE if ONE of the operands is TRUE
+
+let visokPrihod = true;
+let dobarKreditniSkor = false;
+let podobanZaKredit = visokPrihod || dobarKreditniSkor;
+
+console.log('Podoban', podobanZaKredit);//Bice true jer je dovoljan 1 true
+
+
+/*4c. NOT (!) operator - daje suprotnu vrednost od one 
+koju varijabla ima (ako je bilo true-bice false i obrnuto*/
+
+let applicationRefused = !podobanZaKredit;
+
+console.log('Aplikacija odbijena',applicationRefused);
+//Da je gore na oba bilo false, (prihod i kred.skor)bilo bi true
+//True da je aplikacija odbijena zbog NOT !
+
+
