@@ -651,4 +651,70 @@ console.log('Aplikacija odbijena',applicationRefused);
 //Da je gore na oba bilo false, (prihod i kred.skor)bilo bi true
 //True da je aplikacija odbijena zbog NOT !
 
+//Vezba da se utvrdi ovo prethodno
+let dobraLova = true;
+let okKreditniSkor = false;
 
+pogodanZaKredu = dobraLova || okKreditniSkor;
+
+console.log(pogodanZaKredu);
+
+let odbijenZaKredu = !pogodanZaKredu;
+
+console.log('Odbijen za kredit',odbijenZaKredu);
+
+//4d.NON boolean operators (Falsy and Truthy) - ne false or true!
+
+/*FALSY (false)-smatraju se kao false ali nisu false u logical
+expressionima (&& - i, || - ili ) :*/
+
+//undefined
+//null
+//0
+//false
+//"" - empty string
+/*NaN (not a number-special value in JS)-kad radimo matematicku 
+operaciju koja ne proizvodi vrednost, dobijamo NaN*/
+
+//U konzoli kad kucamo:
+//false || true => true
+//false || "Mosh" => "Mosh" - nije empty string => Truthy
+//false || 1 => 1
+/*false || 1 || 2 || => 1 - cim pronadje prvi truthy taj stavlja
+OVO SE ZOVE SHORT-CIRCUITING*/
+
+//Anything that is no Falsy is Truthy !!!
+//FALSE || TRUTHY => TRUTHY !!!
+ 
+//Primer za short-circuiting (kad imamo prvi clan)
+
+let userColor = "red";
+let defaultColor = "blue";
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor);//prikazace red jer je prva, a da nema nje, prikazalo bi blue
+
+//Primer kad nemamo prvi clan
+
+let opremaZaBazen = undefined;
+let normalnaOprema = "sorc";
+let staObuci = opremaZaBazen || normalnaOprema;
+
+console.log(staObuci);
+
+/*ovo su Non-booleans (opremaZaBazen,normalnaOprema)
+ i logical operators (|| ili &&) u upotrebi sa njima */
+
+
+//5.BITWISE operators (RETKO SE KORISTE-SKORO NIKAD)
+
+//Bitwise OR (|) vs Logical OR ( || )
+//Bitwise AND (&) vs Logical AND (&&)
+
+//1 = 00000001 iz decimalnog u binarni
+//2 = 00000010
+//3 = 00000011
+//
+
+console.log(1 | 2); //Bitwise OR
+console.log(1 & 2); //Bitwise AND
