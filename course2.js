@@ -616,3 +616,188 @@ let poeni = 110;
 let tip = poeni > 100 ? 'gold' : 'silver'; //ZAPAMTITI OVAJ KORAK
 
 console.log(tip);
+
+
+//4.LOGICAL operators - with Non-booleans 
+
+//4a.Logical AND (&&) operator
+//Returns TRUE if both operands are TRUE
+
+console.log(true && true); //bice true samo ako su oba true
+console.log(false && false);//bice false
+console.log(true && false);//bice false
+
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome && goodCreditScore;
+
+console.log(eligibleForLoan);
+
+//4b.Logical OR (||) operator
+//Returns TRUE if ONE of the operands is TRUE
+
+let visokPrihod = true;
+let dobarKreditniSkor = false;
+let podobanZaKredit = visokPrihod || dobarKreditniSkor;
+
+console.log('Podoban', podobanZaKredit);//Bice true jer je dovoljan 1 true
+
+
+/*4c. NOT (!) operator - daje suprotnu vrednost od one 
+koju varijabla ima (ako je bilo true-bice false i obrnuto*/
+
+let applicationRefused = !podobanZaKredit;
+
+console.log('Aplikacija odbijena',applicationRefused);
+//Da je gore na oba bilo false, (prihod i kred.skor)bilo bi true
+//True da je aplikacija odbijena zbog NOT !
+
+//Vezba da se utvrdi ovo prethodno
+let dobraLova = true;
+let okKreditniSkor = false;
+
+pogodanZaKredu = dobraLova || okKreditniSkor;
+
+console.log(pogodanZaKredu);
+
+let odbijenZaKredu = !pogodanZaKredu;
+
+console.log('Odbijen za kredit',odbijenZaKredu);
+
+//4d.NON boolean operators (Falsy and Truthy) - ne false or true!
+
+/*FALSY (false)-smatraju se kao false ali nisu false u logical
+expressionima (&& - i, || - ili ) :*/
+
+//undefined
+//null
+//0
+//false
+//"" - empty string
+/*NaN (not a number-special value in JS)-kad radimo matematicku 
+operaciju koja ne proizvodi vrednost, dobijamo NaN*/
+
+//U konzoli kad kucamo:
+//false || true => true
+//false || "Mosh" => "Mosh" - nije empty string => Truthy
+//false || 1 => 1
+/*false || 1 || 2 || => 1 - cim pronadje prvi truthy taj stavlja
+OVO SE ZOVE SHORT-CIRCUITING*/
+
+//Anything that is not Falsy is Truthy !!!
+//FALSE || TRUTHY => TRUTHY !!!
+ 
+//Primer za short-circuiting (kad imamo prvi clan)
+
+let userColor = "red";
+let defaultColor = "blue";
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor);//prikazace red jer je prva, a da nema nje, prikazalo bi blue
+
+//Primer kad nemamo prvi clan
+
+let opremaZaBazen = undefined;
+let normalnaOprema = "sorc";
+let staObuci = opremaZaBazen || normalnaOprema;
+
+console.log(staObuci);
+
+/*ovo su Non-booleans (opremaZaBazen,normalnaOprema)
+ i logical operators (|| ili &&) u upotrebi sa njima */
+
+
+//5.BITWISE operators (RETKO SE KORISTE-SKORO NIKAD)
+
+//Bitwise OR (|) vs Logical OR ( || )
+//Bitwise AND (&) vs Logical AND (&&)
+
+//1 = 00000001 => u decmialnnom (1) = u binarnom sistemu 00000001
+//2 = 00000010
+//3 = 00000011 //Rezultat od c.log (1 | 2);
+
+/*U binarnom sistemu svaki broj je bit, broj jedan (1) ima 8
+ bitova (8 bits) = 00000001 i to cini jedan bajt (1 byte)*/
+
+console.log(1 | 2); //Bitwise OR
+console.log(1 & 2); /*Bitwise AND (if both numbers are one,
+one will be returned, otherwise it will be 0)*/
+//Znaci 1 & 2 imamo za 1 = 00000001
+//i za                 2 = 00000010
+
+/*Na 7.decimalnom mestu kod 1 je 0, a na 7. mestu kod 2 je (1),
+samim tim bice rezultat 0 jer se ne slazu iste cifre*/
+
+//REALNA PRIMENA BITWISE OPERATORA PRIMER:
+
+/*Ako useru hocemo da damo neki od permissiona
+(Read, Write, Execute)
+kad hocemo da implementiramo access control system*/
+
+/*Mozemo koristiti 1 byte informacija ili 8 bitova da utvrdimo
+vrstu permissiona koju ce user imati*/
+
+/*Koristicemo 00000 (5 nula svakako i ostale 3 cifre (jedinice)
+ ce odredjivati, imali user acces ili ne, ako ima 1-ima acces)*/
+
+ //Read, Write, Execute
+//00000100 - ima samo Read access
+//00000110 - ima Read and Write access
+//00000111 - ima Read, Write i Execute access
+//00000001- ima samo Execute acess
+
+//PRIMER PRIMENE
+
+const readPermission = 4; //00000100 - online convertor moze
+const writePermission = 2;//00000010
+const executePermission = 1;//00000001
+
+let myPermission = 0;
+myPermission = myPermission | readPermission | writePermission;
+console.log(myPermission); //Bice broj 6, ali mora na dr.nacin
+
+let message = (myPermission & readPermission) ? "yes" : "no"; 
+/*Ovo iznad je Ternery operator (ima condition koji ako je 
+true-dace yes i ako je false- dace no)*/
+
+console.log(message);
+
+/*Sa BITWISE OR (|) operatorom mozemo dati permission
+a sad BITWISE AND (&) mozemo proveriti imamo li permission*/
+
+//OPERATOR PRECEDENCE - prednost operatora
+//(when working with complex expressions)
+
+let k = 2 + 3 * 4; //14 - jer mnozenje ima prednost
+
+console.log(k);
+
+let z = (2 + 3) * 4;// 20 = 5 * 4
+
+console.log(z);
+
+//EXERCISE SWAPPING VARIABLES
+
+let bojaA = "plava";
+let bojaB = "crvena";
+
+bojaA = "crvena";
+bojaB = "plava";
+
+console.log(bojaA);
+console.log(bojaB);
+
+//U klipu zakomplikovano sa let bojaC = bojaA; a=b;b=c; NEPOTREBNO ILI?
+
+//Vezba-Quiz
+let g = 10;
+let e = (g>5) && (g<15);
+
+console.log(e); //true
+
+let h = 1;
+let d = h !== 2;// !== (not equal value or not equal type)
+
+console.log(d);//true jer 1 nije jednako 2
+
+//OPERATORS - DONE
