@@ -683,7 +683,7 @@ operaciju koja ne proizvodi vrednost, dobijamo NaN*/
 /*false || 1 || 2 || => 1 - cim pronadje prvi truthy taj stavlja
 OVO SE ZOVE SHORT-CIRCUITING*/
 
-//Anything that is no Falsy is Truthy !!!
+//Anything that is not Falsy is Truthy !!!
 //FALSE || TRUTHY => TRUTHY !!!
  
 //Primer za short-circuiting (kad imamo prvi clan)
@@ -711,10 +711,92 @@ console.log(staObuci);
 //Bitwise OR (|) vs Logical OR ( || )
 //Bitwise AND (&) vs Logical AND (&&)
 
-//1 = 00000001 iz decimalnog u binarni
+//1 = 00000001 => u decmialnnom (1) = u binarnom sistemu 00000001
 //2 = 00000010
-//3 = 00000011
-//
+//3 = 00000011 //Rezultat od c.log (1 | 2);
+
+/*U binarnom sistemu svaki broj je bit, broj jedan (1) ima 8
+ bitova (8 bits) = 00000001 i to cini jedan bajt (1 byte)*/
 
 console.log(1 | 2); //Bitwise OR
-console.log(1 & 2); //Bitwise AND
+console.log(1 & 2); /*Bitwise AND (if both numbers are one,
+one will be returned, otherwise it will be 0)*/
+//Znaci 1 & 2 imamo za 1 = 00000001
+//i za                 2 = 00000010
+
+/*Na 7.decimalnom mestu kod 1 je 0, a na 7. mestu kod 2 je (1),
+samim tim bice rezultat 0 jer se ne slazu iste cifre*/
+
+//REALNA PRIMENA BITWISE OPERATORA PRIMER:
+
+/*Ako useru hocemo da damo neki od permissiona
+(Read, Write, Execute)
+kad hocemo da implementiramo access control system*/
+
+/*Mozemo koristiti 1 byte informacija ili 8 bitova da utvrdimo
+vrstu permissiona koju ce user imati*/
+
+/*Koristicemo 00000 (5 nula svakako i ostale 3 cifre (jedinice)
+ ce odredjivati, imali user acces ili ne, ako ima 1-ima acces)*/
+
+ //Read, Write, Execute
+//00000100 - ima samo Read access
+//00000110 - ima Read and Write access
+//00000111 - ima Read, Write i Execute access
+//00000001- ima samo Execute acess
+
+//PRIMER PRIMENE
+
+const readPermission = 4; //00000100 - online convertor moze
+const writePermission = 2;//00000010
+const executePermission = 1;//00000001
+
+let myPermission = 0;
+myPermission = myPermission | readPermission | writePermission;
+console.log(myPermission); //Bice broj 6, ali mora na dr.nacin
+
+let message = (myPermission & readPermission) ? "yes" : "no"; 
+/*Ovo iznad je Ternery operator (ima condition koji ako je 
+true-dace yes i ako je false- dace no)*/
+
+console.log(message);
+
+/*Sa BITWISE OR (|) operatorom mozemo dati permission
+a sad BITWISE AND (&) mozemo proveriti imamo li permission*/
+
+//OPERATOR PRECEDENCE - prednost operatora
+//(when working with complex expressions)
+
+let k = 2 + 3 * 4; //14 - jer mnozenje ima prednost
+
+console.log(k);
+
+let z = (2 + 3) * 4;// 20 = 5 * 4
+
+console.log(z);
+
+//EXERCISE SWAPPING VARIABLES
+
+let bojaA = "plava";
+let bojaB = "crvena";
+
+bojaA = "crvena";
+bojaB = "plava";
+
+console.log(bojaA);
+console.log(bojaB);
+
+//U klipu zakomplikovano sa let bojaC = bojaA; a=b;b=c; NEPOTREBNO ILI?
+
+//Vezba-Quiz
+let g = 10;
+let e = (g>5) && (g<15);
+
+console.log(e); //true
+
+let h = 1;
+let d = h !== 2;// !== (not equal value or not equal type)
+
+console.log(d);//true jer 1 nije jednako 2
+
+//OPERATORS - DONE
