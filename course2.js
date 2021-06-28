@@ -17,8 +17,8 @@ let ourName = "freeCodeCamp";
 
 const pi = 3.14;
 
-var a;
-var b = 2;
+var a; //Deklarisanje varijable a (samo joj dajemo postojanje, ne i vrednost)
+var b = 2; //Deklarisanje i inicijalizacija varijable (assigning) b (dajemo joj postojanje i vrednost)
 console.log(a);
 a = 7;
 
@@ -39,16 +39,16 @@ properCamelCase = "A String";
 titleCaseOver = 9000;
 
 var sum = 10 + 10;
-console.log(sum);
+console.log(sum); //Bice 20 prikazano
 
 var difference = 45 - 33;
-console.log(difference);
+console.log(difference); //Bice 12 prikazano
 
 var product = 8 * 10;
-console.log(product);
+console.log(product); //Bice 80
 
 var quotient= 66 / 33;
-console.log(quotient);
+console.log(quotient); // Bice 2
 
 
 //Dodavanje (prirastaj) brojeva
@@ -66,7 +66,7 @@ var myDecimal = 0.009
 
 //Sve sto ima decimale iza tacke smatra se decimalnim brojem
 
-//Mnozenje decimalnih brojeva radi se ito sa * kao i za obicne brojeve
+//Mnozenje decimalnih brojeva radi se isto sa * kao i za obicne brojeve
 
 //Deljenje decimalnih brojeva ide sa / i dobije se kolicnik tj. quotient
 
@@ -120,7 +120,7 @@ Nakon prvih navodnika ", pre svakog sledeceg navodnika mora biti znak \, a nikak
 A pre poslednjeg navodnika ne ide \ 
 
 */
-var myStr = "I am a \"double quoted\" string indside \" double quotes";
+var myStr = "I am a \"double quoted\" string inside \" double quotes";
 
 console.log(myStr);
 
@@ -260,21 +260,21 @@ console.log(prvoSlovoImena);
 var nekiBroj;
 nekiBroj = 88;
 nekiBroj++;
-console.log(nekiBroj);
+console.log(nekiBroj); //Bice 89
 
 //Podsecanje na remainder
 
 var remainder1;
 remainder1 = 20 % 3;
-console.log(remainder1);
+console.log(remainder1); //Bice 2
 
 //Podsetnik slozeno sabiranje
  var p = 100;
  var m = 200;
 
- p += 100;
+ p += 100; 
 
- console.log(p);
+ console.log(p); //Bice 200
 
  //Podsetnik string u stringu 2 nacina
 
@@ -287,7 +287,7 @@ console.log(glupaviString);
 
 //Podsetnik escape sequences in strings
 
-var testString = "Prva linija\n\n\t Druga linija i tab\n\\''Treca linija sa navodnicima i backslash\\";
+var testString = "Prva linija\n\t Druga linija i tab\n\\''Treca linija sa navodnicima i backslash\\";
 
 console.log(testString);
 
@@ -356,7 +356,7 @@ myStr3 = "Hello World"  //Ovo hoce
 
 console.log(myStr3);
 
-/*Bracket Notation to Finda Nth Character in String -
+/*Bracket Notation to Find a Nth Character in String -
 isto kao i trazenje bilo kog slova u nizu [0]-za prvo slovo
 [1]- za drugo itd.
 */
@@ -415,7 +415,7 @@ let imeee = "Dragan";
 console.log(imeee);
 
 //VARIJABLE:
-//Name ne moze biti rezervrd keyword (let, var, else, if...izbacice gresku)
+//Name ne moze biti rezerved keyword (let, var, else, if...izbacice gresku)
 //Mora biti smisleno (ne moze biti a1, b8)
 //Ne moze poceti sa brojem (1imee)
 //Ne mogu sadrzati space ili (-)
@@ -432,7 +432,7 @@ kamatnaStopa = 1; //na ovaj nacin moze se promeniti varijabla
 console.log(kamatnaStopa);
 
 const kamatnaStopa1 = 0.5;
-/*kamatnaStopa1 = 1; ne mozemo reasajnovati konstantu-ovo ne radi
+/*kamatnaStopa1 = 1; ne mozemo reasajnovati KONSTANTU (const)-ovo ne radi
 Ako hocemo da menjamo varijablu koristimo let, nikako const */
 //console.log(kamatnaStopa1);
 
@@ -470,8 +470,8 @@ let selectedColors = ['red', 'blue'];
 selectedColors[2] = 'green';
 selectedColors[3] = 1;
 
-console.log(selectedColors[0]); //prikazace red
-console.log(selectedColors[2]); //prikazace dodatu zelenu
+console.log(selectedColors[0]); //prikazace red (crvenu)
+console.log(selectedColors[2]); //prikazace dodatu green (zelenu)
 console.log(selectedColors[3]); //prikazace keca
 console.log(selectedColors); //prikazace sve 3 boje i keca
 //Ako hocemo duzinu niza da vidimo samo dodamo .length
@@ -549,7 +549,7 @@ console.log(x ** y); //EXPONENTINATION (10 na treci)
 
 console.log(++x); //Dobicemo 11 odmah
 
-//Ako prvo stavimo x pa ++ ostace 10 u cons.ali se vr. uvecala +1
+//Ako prvo stavimo x pa ++ ostace 10 u consoli ali se vr. uvecala +1
 //Pa kad opet uradimo cons.log od x pisace 11
 
 console.log(x++);//Dobicemo 11 (jer smo gore uvecali +1),ali je vr uvecana za jos +1
@@ -600,8 +600,8 @@ console.log('1' === 1);//String-number (false)
 /*Ako se Type ne podudara, konvertovace ono sto je desno 
 u Type od levog u zagradi */
 
-console.log(1 == 1);
-console.log('1' == 1);//on ovo vidi kao ('1' == '1')
+console.log(1 == 1);//true
+console.log('1' == 1);//on ovo vidi kao ('1' == '1') i bice true
 console.log(true == 1);//konvertuje 1 u boolean (true = true)
 
 
@@ -630,7 +630,7 @@ let highIncome = true;
 let goodCreditScore = true;
 let eligibleForLoan = highIncome && goodCreditScore;
 
-console.log(eligibleForLoan);
+console.log(eligibleForLoan);//true
 
 //4b.Logical OR (||) operator
 //Returns TRUE if ONE of the operands is TRUE
@@ -661,7 +661,7 @@ console.log(pogodanZaKredu);
 
 let odbijenZaKredu = !pogodanZaKredu;
 
-console.log('Odbijen za kredit',odbijenZaKredu);
+console.log('Odbijen za kredit',odbijenZaKredu);//false
 
 //4d.NON boolean operators (Falsy and Truthy) - ne false or true!
 
@@ -678,7 +678,7 @@ operaciju koja ne proizvodi vrednost, dobijamo NaN*/
 
 //U konzoli kad kucamo:
 //false || true => true
-//false || "Mosh" => "Mosh" - nije empty string => Truthy
+//false || "Mosh" => "Mosh" - nije empty string => Truthy 
 //false || 1 => 1
 /*false || 1 || 2 || => 1 - cim pronadje prvi truthy taj stavlja
 OVO SE ZOVE SHORT-CIRCUITING*/
@@ -700,7 +700,7 @@ let opremaZaBazen = undefined;
 let normalnaOprema = "sorc";
 let staObuci = opremaZaBazen || normalnaOprema;
 
-console.log(staObuci);
+console.log(staObuci);//sorc
 
 /*ovo su Non-booleans (opremaZaBazen,normalnaOprema)
  i logical operators (|| ili &&) u upotrebi sa njima */
@@ -777,11 +777,17 @@ console.log(z);
 
 //EXERCISE SWAPPING VARIABLES
 
+
+
 let bojaA = "plava";
 let bojaB = "crvena";
+let pomocnaVarijabla = bojaA;
+bojaA = bojaB;
+bojaB = pomocnaVarijabla;
 
-bojaA = "crvena";
-bojaB = "plava";
+
+// bojaA = "crvena";
+// bojaB = "plava";
 
 console.log(bojaA);
 console.log(bojaB);
@@ -800,3 +806,152 @@ let d = h !== 2;// !== (not equal value or not equal type)
 console.log(d);//true jer 1 nije jednako 2
 
 //OPERATORS - DONE
+
+console.log("dragan" || "srdjan");
+
+let bojaQ = "zuta";
+let bojaR = "plava";
+
+let resenjeRebusa = bojaQ === bojaR ? "Srdjane kralju popusi nam karu" : "Dragane kralju popusi nam karu";
+
+console.log(resenjeRebusa);
+
+console.log(bojaQ !== bojaR ? "Dragane kralju popusi nam karu" : "Srdjane kralju popusi nam karu");
+
+if(bojaQ !== bojaR) 
+  console.log("Srdjane popusi nam karu");
+else 
+  console.log("Srdjane popusi nam karu");
+  
+console.log("Dragane popusi nam karu");
+
+
+var nesto = 100;
+
+++nesto;
+
+console.log(nesto);
+
+//CONTROL FLOW (4.th CHAPTER OF COURSE)
+
+/*CONDITIONAL STATEMENTS 
+1.If...else
+2.Switch...case */
+
+/*{} - ovo se zove BLOCK OF CODE (prva zagrada stoji u prvom redu
+koda, tipa if (condition) { ) */
+
+//1. IF...ELSE 
+
+//Prvi primer
+
+//Hour
+//If hour is between 6h and 12h: Good morning!
+//If it is between 12h and 18h: Good afternoon!
+//Otherwise: Good evening!
+
+/* if (condition) {
+   statement
+ }
+ else if (condition) {
+   statement
+ }
+ else if (yetAnotherCondition) {
+   statement
+ }
+ else
+  statement
+*/
+
+//OVO JE KONSTRUKCIJA KODA INACE (MOZE BITI ELSE IF-OVA NEOGRANICENO)
+
+//Resenje primera (moramo deklarisati hour varijablu)
+
+let houR = 13;
+
+if (houR >= 6 && houR < 12)
+  console.log("Good morning!");
+else if (houR >= 12 && houR < 18)
+  console.log("Good afternoon!");
+else
+  console.log("Good evening!");
+
+//Zato sto se radi o single statementu obrisali smo {} iz koda
+
+
+//2. SWITCH...CASE (outdated and ugly-IF...ELSE je bolji)
+/*Koristimo Break, da ne bi oba switch bloka bila executed 
+(nece prikazati oba console.loga ili 3...Koliko god)*/
+
+/*Za default statement ne trebamo Break jer ce automatski 
+prepoznati*/
+
+//Konstrukcija koda
+
+/*
+switch (variable) {
+  case (poredimo value of variable with something):
+    console.log(pisemo sta zelimo ako je true ovo gore);
+    break;
+
+    case (poredimo drugu vrednost varijable):
+      console.log(ista prica);
+      break;
+
+      default:
+        console.log(neki statement);
+
+ako je bilo let role;
+vrednost mu je undefined i u consoli bice "neki statement"
+
+}
+*/
+
+let role = "guest";
+
+switch (role) {
+  case "guest":
+    console.log("Gost User");
+    break;
+
+    case "moderator":
+      console.log("Moderator User");
+      break;
+
+      default:
+        console.log("Nepoznat User");
+}
+
+//OVO MOZE I SA IF...ELSE DOSTA LAKSE
+
+// if (role === "guest"); {
+//  console.log("Guest User");
+// }
+//   else if (role === "moderator") //NEKI BAG NE ZNAM ZASTO
+//   console.log("MODERATOR");
+//   else
+//     console.log("NE ZNAMO KO JE");
+
+//DA PROBAMO OPET 
+
+// let uloga = "profesor";
+
+// if (uloga === "profesor");
+//   console.log("PROFA");
+//  else if (uloga === "admin") {
+//   console.log("ADMIN"); 
+//  } 
+//  else
+//  console.log(NE ZNA SE KO JE);
+
+let imaKljuc = "da";
+
+if (imaKljuc === "da") {
+  console.log("domacin");
+}
+else if (imaKljuc === "ne") {
+  console.log("gost");
+}
+else
+console.log("lopov");
+
