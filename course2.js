@@ -878,6 +878,21 @@ else
 
 //Zato sto se radi o single statementu obrisali smo {} iz koda
 
+//Primer 2 (prosek ucenika)
+
+let prosek = 4.57;
+
+if (prosek >= 1 && prosek < 1.5) 
+  console.log("Nedovoljan");
+else if (prosek >= 1.5 && prosek < 2.5) 
+  console.log("Dovoljan");
+else if (prosek >= 2.5 && prosek < 3.5) 
+  console.log("Dobar");
+else if (prosek >= 3.5 && prosek < 4.5) 
+  console.log("Vrlo dobar");
+else 
+  console.log("Odlican");
+
 
 //2. SWITCH...CASE (outdated and ugly-IF...ELSE je bolji)
 /*Koristimo Break, da ne bi oba switch bloka bila executed 
@@ -924,27 +939,28 @@ switch (role) {
 
 //OVO MOZE I SA IF...ELSE DOSTA LAKSE
 
-// if (role === "guest"); {
-//  console.log("Guest User");
-// }
-//   else if (role === "moderator") //NEKI BAG NE ZNAM ZASTO
-//   console.log("MODERATOR");
-//   else
-//     console.log("NE ZNAMO KO JE");
+if (role === "guest") {
+ console.log("Guest User");
+}
+  else if (role === "moderator") //NEKI BAG NE ZNAM ZASTO
+  console.log("MODERATOR");
+  else
+    console.log("NE ZNAMO KO JE");
 
 //DA PROBAMO OPET 
 
-// let uloga = "profesor";
+let uloga = "profesor";
 
-// if (uloga === "profesor");
-//   console.log("PROFA");
-//  else if (uloga === "admin") {
-//   console.log("ADMIN"); 
-//  } 
-//  else
-//  console.log(NE ZNA SE KO JE);
+if (uloga === "profesor")
+  console.log("PROFA");
+   else if (uloga === "admin")
+  console.log("ADMIN"); 
+    else
+ console.log("NE ZNA SE KO JE");
 
-let imaKljuc = "da";
+//PRIMER 3
+
+ let imaKljuc = "da";
 
 if (imaKljuc === "da") {
   console.log("domacin");
@@ -955,3 +971,14 @@ else if (imaKljuc === "ne") {
 else
 console.log("lopov");
 
+
+let osvojioMedalju = "ne";
+
+if (osvojioMedalju === "da") {
+  console.log("Olimpijac je");
+}
+else if (osvojioMedalju === "ne") {
+  console.log("Propalica je");
+}
+else
+console.log("Nije ni dosao");
