@@ -982,3 +982,74 @@ else if (osvojioMedalju === "ne") {
 }
 else
 console.log("Nije ni dosao");
+
+
+//3. FOR - ponavljanje iste stvari vise puta pomocu LOOPS-a
+
+// console.log("Hello World");
+// console.log("Hello World");
+// console.log("Hello World");
+// console.log("Hello World");
+// console.log("Hello World");
+
+//Umesto ovog gore (ruzno izgleda), koristimo LOOPS (repeating of action, number of times)
+
+//Types of LOOPS:
+//1. FOR
+//2. WHILE
+//3. DO...WHILE      (SVI LOOPS RADE ISTU STVAR U OSNOVI)
+//4. FOR...IN
+//5. FOR...OF
+
+
+/*1. FOR (LOOP) - konstrukcija ima 3 statementa-
+
+1. Initial expression (deklarise i inicijalizuje varijablu),
+2. Condition (poredimo vr.varijable sa necim sve dok je true.,
+   znaci dok je npr. i < 5 poredjenje ce raditi)
+3. Increment expression (da uvecamo vr. varijable npr. i++)
+   A moze biti i decrement (umanjimo)*/
+
+
+//Nakon FOR statementa, mozemo dodati jos statementa npr.IF
+
+/* i = skracenica za index i po konvenciji se koristi za 
+FOR LOOPS i zovu je loop variable */
+
+/*for (initialExpression; condition; incrementExpression) {
+  statement
+}
+OVO JE KONSTRUKCIJA */
+
+//PRIMER 1:
+
+for (let i = 0; i < 5; i++) {
+  console.log("Hello World", i);
+}
+
+/*Prikazace 5 HelloWorld poruka u konzoli dok god je
+ ispunjen condition (i < 5)*/
+
+//Da prikazemo detaljan sled kucamo ,i ("Hello World", i)
+
+//PRIMER 2:
+
+for (let p = 1; p <= 5; p++) {
+  console.log("Hello From The Other Side", p);
+}
+
+/*PRIMER 3 (PRIKAZATI SAMO NEPARNE BROJEVE) - uz pomoc
+remaindera of the division of two*/
+
+for (let l = 1; l <= 5; l++) {
+  if (l % 2 !== 0) 
+    console.log(l);
+}
+//Prikazace samo 1,3 i 5 kao neparne brojeve
+
+//Moze i obrnuto od 5 do 1
+
+for (let k = 5; k >= 1; k--) {
+  if (k % 2 !== 0)
+  console.log(k);
+}
