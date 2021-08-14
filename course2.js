@@ -985,6 +985,7 @@ console.log("Nije ni dosao");
 
 
 //3. FOR - ponavljanje iste stvari vise puta pomocu LOOPS-a
+//Kod FOR loop-a varijabla je deo loop-a for (let i = 0)-varijabla
 
 // console.log("Hello World");
 // console.log("Hello World");
@@ -1021,7 +1022,8 @@ FOR LOOPS i zovu je loop variable */
 }
 OVO JE KONSTRUKCIJA */
 
-//PRIMER 1:
+/*PRIMER 1: (ovo i = 0, vazi samo u ovom loop-u, zbog zagrada 
+  i to je SCOPE)*/
 
 for (let i = 0; i < 5; i++) {
   console.log("Hello World", i);
@@ -1053,3 +1055,44 @@ for (let k = 5; k >= 1; k--) {
   if (k % 2 !== 0)
   console.log(k);
 }
+
+//2. WHILE (LOOP)
+//Kod WHILE loop-a varijablu moramo definisati eksterno, van loop-a
+
+//KONSTRUKCIJA
+
+/*let i = 0
+//while (condition) {
+  statement (npr. prikazi neparne brojeve)
+  increment (i++)
+}
+*/
+
+//PRIMER
+
+let i = 0;  //Ova varijabla je razlicita skroz od i iz FOR loopa
+while (i <= 5) {
+  if (i % 2 !== 0) console.log(i);
+  i++
+}
+
+//3. DO...WHILE (LOOP) - similar to while loop
+/*Logika je ista kao i kod while, ali DO...WHILE is always 
+executed at least once even if its condition is FALSE*/
+
+//Kostrukcija
+
+/* let i = 0;
+do {
+  if (i % 2 !== 0) console.log(i);
+  i++;
+} while (i <= 5); */
+
+/*Cak iako stavimo i = 9 npr. u konzoli ce nam prikazati 9
+iako je statement false (u liniji koda 1087, proveravamo
+da li je broj neparan - jeste (9) i prikazace ga odmah u konzoli
+,zatim increment ce napraviti +1 = 10 i tek onda condition se 
+evaluira sa while (i <=5) i dobija se false i loop tu staje) */
+
+//RETKO SE KORISTI, NAJCESECE FOR I WHILE !!!
+
