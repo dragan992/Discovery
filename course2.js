@@ -1094,5 +1094,79 @@ da li je broj neparan - jeste (9) i prikazace ga odmah u konzoli
 ,zatim increment ce napraviti +1 = 10 i tek onda condition se 
 evaluira sa while (i <=5) i dobija se false i loop tu staje) */
 
-//RETKO SE KORISTI, NAJCESECE FOR I WHILE !!!
+//RETKO SE KORISTI, NAJCESECE SE KORISTE FOR I WHILE !!!
 
+
+/*4. INFINITE (LOOPS that executes infinitely-forever
+NEOGRANICENI-izvrsavaju se bez kraja)-BE AWARE IF THEM !!!  */
+
+//Mogu zabagovati browser ili ceo kompjuter ako dodje do njih!!!
+
+//Desavaju se kod WHILE,DO...WHILE i FOR (LOOP-ova) GRESKOM !
+
+//Primeri:
+
+//1.Primer sa WHILE
+
+// let pp = 0;
+// while (pp < 5) {
+//   //pp++;  AKO ZABORAVIMO DA URADIMO INCREMENT-BICE INFINITE
+// }
+
+//Morao sam zakomentarisati, jer ubaguje mi browser
+
+//2. Primer sa WHILE 
+
+// while (true) {
+
+// }
+
+//3.Primer sa DO...WHILE
+
+// let xl = 0;
+// do {
+//   //x++;  AKO ZABORAVIMO INCREMENT
+// }
+//  while (xl < 5);
+
+//4.Primer sa FOR loop-om
+
+// for (let i = 0; i >= 0; i++);
+// console.log("Ide gas");
+
+// for (let i = 0; i < 10; //i++ ZABORAVIMO)
+// console.log("Ubagovace browser");
+
+
+/*5. FOR..IN (LOOP)-koristimo za ponavljanje svojstva
+ objekta (object) ili niza (array)*/
+
+const covek = {
+  imeRodjeno: "Dragan",
+  godineCoveka: 29
+};
+
+//Sad nece biti for(initialExpression; condition; increment)
+
+/*Sad je kljucan KEY variable in the loop 
+(holds the name of one of the properties in this covek object)*/
+//To iterate over-ponoviti 
+
+for (let key in covek)
+console.log(key);
+
+//Ako zelimo value of each property (Dot or Bracket Notation)
+//covek.imeRojeno ili covek["imeRodjeno"]
+
+for (let key in covek)
+console.log(key, covek[key]); //Ovo je FOR...IN (loop)
+
+//Primer za ARRAY (gore je bio za OBJECT)
+
+const bojice = ["roza", "siva", "braon"];
+
+for (let index in bojice)
+console.log(index);
+console.log(index, bojice [index]); 
+
+//PITANJE SRKI (STO NECE 1170)? A htelo bi u 1169 u nastavku
