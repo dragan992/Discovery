@@ -986,6 +986,7 @@ console.log("Nije ni dosao");
 
 
 //3. FOR - ponavljanje iste stvari vise puta pomocu LOOPS-a
+//Kod FOR loop-a varijabla je deo loop-a for (let i = 0)-varijabla
 
 // console.log("Hello World");
 // console.log("Hello World");
@@ -1022,7 +1023,8 @@ FOR LOOPS i zovu je loop variable */
 }
 OVO JE KONSTRUKCIJA */
 
-//PRIMER 1:
+/*PRIMER 1: (ovo i = 0, vazi samo u ovom loop-u, zbog zagrada 
+  i to je SCOPE)*/
 
 for (let i = 0; i < 5; i++) {
   console.log("Hello World", i);
@@ -1054,3 +1056,188 @@ for (let k = 5; k >= 1; k--) {
   if (k % 2 !== 0)
   console.log(k);
 }
+
+//2. WHILE (LOOP)
+//Kod WHILE loop-a varijablu moramo definisati eksterno, van loop-a
+
+//KONSTRUKCIJA
+
+/*let i = 0
+//while (condition) {
+  statement (npr. prikazi neparne brojeve)
+  increment (i++)
+}
+*/
+
+//PRIMER
+
+let i = 0;  //Ova varijabla je razlicita skroz od i iz FOR loopa
+while (i <= 5) {
+  if (i % 2 !== 0) console.log(i);
+  i++
+}
+
+//3. DO...WHILE (LOOP) - similar to while loop
+/*Logika je ista kao i kod while, ali DO...WHILE is always 
+executed at least once even if its condition is FALSE*/
+
+//Kostrukcija
+
+/* let i = 0;
+do {
+  if (i % 2 !== 0) console.log(i);
+  i++;
+} while (i <= 5); */
+
+/*Cak iako stavimo i = 9 npr. u konzoli ce nam prikazati 9
+iako je statement false (u liniji koda 1087, proveravamo
+da li je broj neparan - jeste (9) i prikazace ga odmah u konzoli
+,zatim increment ce napraviti +1 = 10 i tek onda condition se 
+evaluira sa while (i <=5) i dobija se false i loop tu staje) */
+
+//RETKO SE KORISTI, NAJCESECE SE KORISTE FOR I WHILE !!!
+
+
+/*4. INFINITE (LOOPS that executes infinitely-forever
+NEOGRANICENI-izvrsavaju se bez kraja)-BE AWARE IF THEM !!!  */
+
+//Mogu zabagovati browser ili ceo kompjuter ako dodje do njih!!!
+
+//Desavaju se kod WHILE,DO...WHILE i FOR (LOOP-ova) GRESKOM !
+
+//Primeri:
+
+//1.Primer sa WHILE
+
+// let pp = 0;
+// while (pp < 5) {
+//   //pp++;  AKO ZABORAVIMO DA URADIMO INCREMENT-BICE INFINITE
+// }
+
+//Morao sam zakomentarisati, jer ubaguje mi browser
+
+//2. Primer sa WHILE 
+
+// while (true) {
+
+// }
+
+//3.Primer sa DO...WHILE
+
+// let xl = 0;
+// do {
+//   //x++;  AKO ZABORAVIMO INCREMENT
+// }
+//  while (xl < 5);
+
+//4.Primer sa FOR loop-om
+
+// for (let i = 0; i >= 0; i++);
+// console.log("Ide gas");
+
+// for (let i = 0; i < 10; //i++ ZABORAVIMO)
+// console.log("Ubagovace browser");
+
+
+/*5. FOR..IN (LOOP)-koristimo za ponavljanje svojstva
+ objekta (object) ili niza (array)*/
+
+const covek = {
+  imeRodjeno: "Dragan",
+  godineCoveka: 29
+};
+
+//Sad nece biti for(initialExpression; condition; increment)
+
+/*Sad je kljucan KEY variable in the loop 
+(holds the name of one of the properties in this covek object)*/
+
+//To ITERATE OVER- ponoviti (ITERATION) !!!
+
+for (let key in covek)
+console.log(key);
+
+//Ako zelimo value of each property (Dot or Bracket Notation)
+//covek.imeRojeno ili covek["imeRodjeno"]
+
+for (let key in covek)
+console.log(key, covek[key]); //Ovo je FOR...IN (loop)
+
+//Primer za ARRAY (gore je bio za OBJECT)
+
+const bojice = ["roza", "siva", "braon"];
+
+for (let index in bojice){
+  console.log(index);
+  console.log(index, bojice [index]);
+}
+
+//PITANJE SRKI (STO NECE 1170)? A htelo bi u 1169 u nastavku
+
+
+//6. FOR...OF (LOOP) - sluzi da iterate over (ponovi)arrays(niz)
+
+//Slicno kao FOR...IN, a umesto in koristi OF (keyword)
+
+//Primer 1.
+for (let boja of bojice)
+console.log(boja);
+
+//Primer 2.
+
+const drugari = ["dobri", "losi", "osrednji"];
+
+for (let tipDrugara of drugari)
+console.log(tipDrugara);
+
+/*SUMARIZACIJA FOR...IN I FOR...OF !!!
+
+FOR...IN koristimo za ponavljanje properties of an OBJECT
+
+FOR...OF koristimo za ponavljanje elemenats or items in an ARRAY */
+
+/*7. BREAK AND CONTINUE
+    (keywords thah can change how the loop behaves)*/
+
+//With BREAK keyword we jump out of the LOOP
+//With CONTINUE keyword we jump to the next iteration (ponavljanje)
+
+//Primer 1.
+
+let n = 0;
+while (n <= 10) {
+  console.log(n);
+  n++;
+}
+
+//Primer 2.
+
+let  nn = 0;
+while (nn <= 10) {
+  if (nn === 5) break; //Niz kad dodje do 5, prekida se (pise do 5 u konzoli)
+    console.log(nn);
+    nn++;
+}
+
+//Ako hocemo npr.neparne br.da dobijemo mozemo ovako 
+
+let nesto1 = 0;
+while (nesto1 <= 10) {
+  if (nesto1 % 2 === 0) {
+    nesto1++;
+    continue;
+  }
+  console.log(nesto1);
+  nesto1++; //BIO SAM OVO ZAB. PA JE NASTAO INFINITE LOOP
+}
+
+//EVEN-PARNI BROJEVI, ODD-NEPARNI BROJEVI !!!
+
+/*WHEN JS sees CONTINUE keyword,it will jump at the beggining
+of the loop (while u ovom slucaju) and continues execution  of
+the next iteration (ponavljanje), u tom momentu
+"nesto" je = 2 + iteration (nesto++)=3 i zato vidimo u konzoli
+neparne brojeve samo*/
+
+//CONTINUE CE SE RETKO KORISTITI - legacy word in JS (legendarna)
+//UGLY WAY OF WRITING CODE
