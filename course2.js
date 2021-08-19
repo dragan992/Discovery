@@ -1150,7 +1150,8 @@ const covek = {
 
 /*Sad je kljucan KEY variable in the loop 
 (holds the name of one of the properties in this covek object)*/
-//To iterate over-ponoviti 
+
+//To ITERATE OVER- ponoviti (ITERATION) !!!
 
 for (let key in covek)
 console.log(key);
@@ -1165,8 +1166,77 @@ console.log(key, covek[key]); //Ovo je FOR...IN (loop)
 
 const bojice = ["roza", "siva", "braon"];
 
-for (let index in bojice)
-console.log(index);
-console.log(index, bojice [index]); 
+for (let index in bojice){
+  console.log(index);
+  console.log(index, bojice [index]);
+}
 
 //PITANJE SRKI (STO NECE 1170)? A htelo bi u 1169 u nastavku
+
+
+//6. FOR...OF (LOOP) - sluzi da iterate over (ponovi)arrays(niz)
+
+//Slicno kao FOR...IN, a umesto in koristi OF (keyword)
+
+//Primer 1.
+for (let boja of bojice)
+console.log(boja);
+
+//Primer 2.
+
+const drugari = ["dobri", "losi", "osrednji"];
+
+for (let tipDrugara of drugari)
+console.log(tipDrugara);
+
+/*SUMARIZACIJA FOR...IN I FOR...OF !!!
+
+FOR...IN koristimo za ponavljanje properties of an OBJECT
+
+FOR...OF koristimo za ponavljanje elemenats or items in an ARRAY */
+
+/*7. BREAK AND CONTINUE
+    (keywords thah can change how the loop behaves)*/
+
+//With BREAK keyword we jump out of the LOOP
+//With CONTINUE keyword we jump to the next iteration (ponavljanje)
+
+//Primer 1.
+
+let n = 0;
+while (n <= 10) {
+  console.log(n);
+  n++;
+}
+
+//Primer 2.
+
+let  nn = 0;
+while (nn <= 10) {
+  if (nn === 5) break; //Niz kad dodje do 5, prekida se (pise do 5 u konzoli)
+    console.log(nn);
+    nn++;
+}
+
+//Ako hocemo npr.neparne br.da dobijemo mozemo ovako 
+
+let nesto1 = 0;
+while (nesto1 <= 10) {
+  if (nesto1 % 2 === 0) {
+    nesto1++;
+    continue;
+  }
+  console.log(nesto1);
+  nesto1++; //BIO SAM OVO ZAB. PA JE NASTAO INFINITE LOOP
+}
+
+//EVEN-PARNI BROJEVI, ODD-NEPARNI BROJEVI !!!
+
+/*WHEN JS sees CONTINUE keyword,it will jump at the beggining
+of the loop (while u ovom slucaju) and continues execution  of
+the next iteration (ponavljanje), u tom momentu
+"nesto" je = 2 + iteration (nesto++)=3 i zato vidimo u konzoli
+neparne brojeve samo*/
+
+//CONTINUE CE SE RETKO KORISTITI - legacy word in JS (legendarna)
+//UGLY WAY OF WRITING CODE
