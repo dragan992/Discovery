@@ -1249,3 +1249,5 @@ neparne brojeve samo*/
 // Another one
 
 // sada bi trebao da se wizard
+
+//opet sam gagi992
