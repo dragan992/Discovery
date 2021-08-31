@@ -1240,3 +1240,5 @@ neparne brojeve samo*/
 
 //CONTINUE CE SE RETKO KORISTITI - legacy word in JS (legendarna)
 //UGLY WAY OF WRITING CODE
+
+// Da vidim da li ti pulujes ovo, da li obracas paznju na pulovanje ili si auto-man :D
