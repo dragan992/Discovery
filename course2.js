@@ -1247,3 +1247,5 @@ neparne brojeve samo*/
 // A sta ce sada da mi pisulji???
 
 // Another one
+
+// sada bi trebao da se wizard
