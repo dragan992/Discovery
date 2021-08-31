@@ -1250,4 +1250,4 @@ neparne brojeve samo*/
 
 // sada bi trebao da se wizard
 
-//opet sam gagi992?
+//opet sam gagi992
