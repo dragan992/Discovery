@@ -1251,3 +1251,57 @@ neparne brojeve samo*/
 // sada bi trebao da se wizard
 
 //opet sam gagi992
+
+//VEZBANJE-PRIMERI
+
+/*1. MAX OF TWO NUMBERS -EXERCISE
+(napisati f-ju koja sadrzi 2 broja i returnuje veci od ta 2)*/
+
+let brojeviMax = maksimum (6,2);
+console.log(brojeviMax);
+
+function maksimum (broj1,broj2){
+  // if (broj1 > broj2) return broj1;
+  // else return broj2; //ovde je ELSE suvisno (moze i bez njega da radi kako treba) 
+  
+  return (broj1 > broj2) ? broj1 : broj2; /*Ova linija koda je
+  jednaka kao prethodne 2 samo brze (namerno zakomentarisane 
+  prethodne 2 linije koda zbog testa da li radi)*/
+}
+
+//2.Landscape or portrait funkcija (kakva je slika po rezoluciji)
+
+let opcijeSlike = isLandscape (1600, 1200);
+console.log(opcijeSlike);
+
+//Laksi nacin 
+//console.log(isLandscape,(800,600))-ovako je brze
+
+function isLandscape (width, height) {
+  // if (width > height) return true;
+  // return false;
+  return (width > height) ? true : false; //Ili Landscape,Portrait
+  /*Mozemo obrisati gore true i false jer ce svakako biti
+  executed kao i da pisu*/ 
+}
+
+//3. FizzBuzz algotiram (interview question)
+
+//If number is Divisible by 3 => Fizz
+//If number is Divisible by 5 => Buzz
+//If number is Divisible by both 3 and 5 => FizzBuzz
+//Not Divisible by 3 or 5 => broj koji smo uneli
+//Not a number (boolean, string...)=>"Not a number"
+
+const output = fizzBuzz(30);
+console.log(output);
+
+function fizzBuzz (input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0) return "Fizz";
+  else if (input % 5 === 0) return "Buzz";
+  else if ((input % 3 === 0) && (input % 5 === 0)) return "FizzBuzz";
+  else input;
+}
+
+//Pitati Srkija gde je greska da ne ispise FizzBuzz?
