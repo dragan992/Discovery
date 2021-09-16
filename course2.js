@@ -1305,3 +1305,129 @@ function fizzBuzz (input) {
 }
 
 //Pitati Srkija gde je greska da ne ispise FizzBuzz?
+
+//Vezbanje funkcije odabir mveceg od 2 broja
+//1.
+let jevibro = maksimala (1,10);
+console.log(jevibro);
+
+function maksimala (jbro1, jbro2){
+ return (jbro1 > jbro2) ? jbro1 : jbro2
+}
+//2.
+let natezacina = brojnoStanje (80, 60);
+console.log(natezacina);
+
+function brojnoStanje (nekiK, josNekiK){
+  return (nekiK > josNekiK) ? nekiK : josNekiK;
+}
+//3.
+let potragaBrojeva = trazimVeciBroj (101,100);
+console.log(potragaBrojeva);
+
+function trazimVeciBroj (prviBroj, drugiBroj) {
+  return (prviBroj > drugiBroj) ? prviBroj : drugiBroj;
+}
+
+// OBJECTS (5th CHAPTER OF THE COURSE)
+
+//1.Basics 
+
+/*Objekti se sastoje iz key value pairs, npr. 
+ (Objects are collections of key value pairs): 
+
+let radius = 1;
+let x = 1;        OVO SU SVE KEY VALUE PAIRS tj.
+let y = 1;        properties that are highly related
+
+Key v.pairs su sadrzaoci objekta (objekat ih sadrzi)
+*/
+
+//U objektu se korisi : umesto =
+
+//Uloga objekta je da grupise povezane varijable !!!
+
+/*Value of key value pair can be anyting in JS (number,boolean,
+null, function, another object etc...)*/
+
+/*Ovo sto budem napisao ce biti object oriented style of
+programming - OOP */
+
+/*OOP - we see a programme as a collection of objects
+that talk to each other to perform some functionality*/
+
+//Sledeci object ce imati a few properties and a function
+
+/*In oop terms if a function is part of an object, we call that
+function A METHOD !!!*/
+
+//Primer (pravimo app za crtanje razlicitih oblika):
+
+// let radius = 1;
+// let xx = 1;
+// let yy = 1;
+
+//Sad treba da napravimo OBJECT (circle) sa let ili const (nevazno)
+
+// {} - object literal syntax
+
+// const circle = {
+//   radius: 1,  //Ovde moze biti bilo sta (boolean, string, null...)
+//   location: {
+//     xx: 1,
+//     yy: 1
+//   },
+//   isVisible: true //Sve ovo je group of related variables
+//   draw: function () {
+//     console.log('Draw');
+//   }
+// };
+// circle.draw();
+//Cesto imamo f-je koje rade pomocu ovakvih varijabli
+
+// function draw () {} //npr. f-ja za crtanje kruga
+// function move () {} //npr f-ja for moving a circle
+
+/*Umesto da pravimo f-je standalone, bolje je da ubacimo u
+circle object !!! */ 
+
+//Prikaz dodavanja draw f-je u circle object 
+
+/*key je draw a value je function (red 1381) - value of 
+key value pair can be anything (also function) !!! */
+
+/*Sa zavrsenim redom 1382, mozemo obrisati redove 1388-1389
+i 1366-1368 (ne trebamo vise te independant variables i 
+functions sa ovim circle objectom) */
+
+//Objektu mozemo pristupiti sa dot notationom
+
+//circle.draw();
+
+const krug = {
+  radijus: 1,
+  location: {
+    xm: 1,
+    xs: 1
+  },
+  jeVidljiv: true,
+  nacrtaj: function() {
+    console.log('Nacrtaj');
+  }
+};
+krug.nacrtaj();
+
+const circle = {
+  radius: 1,
+  location: {
+    xx: 1,
+    yy: 1
+  },
+  isVisible: true,
+  draw: function() {
+    console.log('draw');
+  }
+};
+circle.draw();
+
+//Zasto nece da izvrsi cons.log dok ne ukucam 1431 red?
