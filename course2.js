@@ -1306,7 +1306,7 @@ function fizzBuzz (input) {
 
 //Pitati Srkija gde je greska da ne ispise FizzBuzz?
 
-//Vezbanje funkcije odabir mveceg od 2 broja
+//Vezbanje funkcije odabir veceg od 2 broja
 //1.
 let jevibro = maksimala (1,10);
 console.log(jevibro);
@@ -1377,12 +1377,12 @@ function A METHOD !!!*/
 //     xx: 1,
 //     yy: 1
 //   },
-//   isVisible: true //Sve ovo je group of related variables
+//   isVisible: true, //Sve ovo je group of related variables
 //   draw: function () {
 //     console.log('Draw');
 //   }
 // };
-// circle.draw();
+// circle.draw(); //Ovim se poziva izvrsenje funkcije
 //Cesto imamo f-je koje rade pomocu ovakvih varijabli
 
 // function draw () {} //npr. f-ja za crtanje kruga
@@ -1425,9 +1425,167 @@ const circle = {
   },
   isVisible: true,
   draw: function() {
-    console.log('draw');
+    console.log('draw'); 
   }
 };
 circle.draw();
 
 //Zasto nece da izvrsi cons.log dok ne ukucam 1431 red?
+
+
+//OBJEKTI PONOVO
+
+/* Objects are collections of key value pairs
+
+If they have properties that are highly related, we wanna
+hold them inside an object (gruoping related variables)
+
+Deklarisacemo objekat krug i u njemu one or more key value p. */
+
+  let krugic = {
+    radiuus: 1,
+    lokejsn: {
+      iks: 1,
+      ipsilon: 1
+    },
+    vidljivJe: true,
+    crtangija: function () {
+     console.log('crtaj miki'); 
+    }
+  };
+  krugic.crtangija();
+
+ 
+let kucetina = {
+  dimenzije: {
+    sirina: 10,
+    duzina: 15
+  },
+  imaKrov: true,
+  kucica: function() {
+    console.log("Imam lepu kucu");
+  }
+};
+kucetina.kucica();
+
+let dnevnik = {
+  zakljucnaOcena: 4.50,
+  predmeti: {
+    matematika: 4,
+    fizika: 5
+  },
+  skola: function () {
+    console.log("Dobar sam djak");
+  } 
+};
+dnevnik.skola();
+
+let mesec = {
+  dani: {
+    vikend: ["subota", "nedelja"],
+    radni: "ponedeljak"
+  },
+  isaoSamUskoluNekad: true,
+  kulDani: function () {
+    console.log("NE RADI MI SEE");
+  }
+};
+mesec.kulDani();
+
+//2. Factory Functions (constructor functions-other name)
+
+
+/*Ako iskopiramo objekat (npr. circle object) imamo problem
+sa duplikatom METHOD-a u ovom slucaju draw-method (ako tu bude bug, morali bismo da
+ga ispravljamo na vise mesta npr.ako je 10 linija koda,
+to bi bio haos), a srecom u ovom objektu je samo jedan method*/
+
+// const circle2 = {
+//   radius: 1,
+//   location: {
+//     xx: 1,
+//     yy: 1
+//   },                 ZAKOMENTARISANO DA BIH PRAVIO FACTORY 
+//   isVisible: true,   FUNCTOON (ON JE OBRISAO OVO SKROZ)
+//   draw: function() {
+//     console.log('draw'); 
+//   }
+// };
+
+/*Da se logika ne bi ponavljala (koja moze biti losa) koristimo
+Factory Functions*/
+
+//Factrory Functions produce objects - sledi factory.funkcija
+
+// function createCircle() {
+//   const circle = {
+//     radius: 1,
+//     location: {
+//       xx: 1,
+//       yy: 1
+//     },
+//     isVisible: true,
+//     draw: function() {
+//       console.log('draw'); 
+//     }
+//   };
+//   return circle;
+// }
+
+//U OSNOVI BI OVAKO IZGLEDALO, A DALJE PRERASTA U OVO:
+
+/*Return prebacujemo gore i Kad god pozovemo createCircle 
+funkciju, dobicemo circle object*/
+
+// function createCircle() {
+//   return {
+//     radius: 1,
+//     location: {
+//       xx: 1,
+//       yy: 1
+//     },
+//     isVisible: true,
+//     draw: function() {
+//       console.log('draw'); 
+//     }
+//   };
+// }
+
+/*SLEDECI KORAK JE DA RADIUS PREBACIMO RADIUS KAO PARAMETAR
+GORE JER SMO OVAKO OSUDJENI DA SVAKI KRUG KREIRAN OVOM
+FUNKCIJOM IMA RADIUS 1 AKO OVAKO OSTANE  */
+
+//Obrisacemo location i isVisible da pojednostavimo 
+
+// function createCircle(radius) {
+//   return {
+//     radius: radius, //moze da se napise i samo radius,
+//     draw: function() {
+//       console.log('draw'); 
+//     }
+//   };
+// }
+
+//SAD JOS JEDNOSTAVNIJE NAPISANO
+
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+    console.log('draw');  
+    }
+  };
+}
+
+//Ovo je sad Factory funkcija (circle obj. radius 1)
+
+const circle1 = createCircle(1);
+console.log(circle1);
+
+
+//Pravimo drugi circle object kao test sa radiusom 2
+
+const circle3 = createCircle(3);
+console.log(circle3);
+
+//3. Constructor Functions
