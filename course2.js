@@ -1492,7 +1492,8 @@ let mesec = {
 };
 mesec.kulDani();
 
-//2. Factory Functions (constructor functions-other name)
+/*2. Factory Functions (constructor functions-other name or 
+PATTERN FOR CREATING OBJECTS)
 
 
 /*Ako iskopiramo objekat (npr. circle object) imamo problem
@@ -1506,7 +1507,7 @@ to bi bio haos), a srecom u ovom objektu je samo jedan method*/
 //     xx: 1,
 //     yy: 1
 //   },                 ZAKOMENTARISANO DA BIH PRAVIO FACTORY 
-//   isVisible: true,   FUNCTOON (ON JE OBRISAO OVO SKROZ)
+//   isVisible: true,   FUNCTION (ON JE OBRISAO OVO SKROZ)
 //   draw: function() {
 //     console.log('draw'); 
 //   }
@@ -1551,7 +1552,7 @@ funkciju, dobicemo circle object*/
 //   };
 // }
 
-/*SLEDECI KORAK JE DA RADIUS PREBACIMO RADIUS KAO PARAMETAR
+/*SLEDECI KORAK JE DA RADIUS PREBACIMO KAO PARAMETAR
 GORE JER SMO OVAKO OSUDJENI DA SVAKI KRUG KREIRAN OVOM
 FUNKCIJOM IMA RADIUS 1 AKO OVAKO OSTANE  */
 
@@ -1583,9 +1584,66 @@ const circle1 = createCircle(1);
 console.log(circle1);
 
 
-//Pravimo drugi circle object kao test sa radiusom 2
+//Pravimo drugi circle object kao test sa radiusom 3
 
 const circle3 = createCircle(3);
 console.log(circle3);
 
-//3. Constructor Functions
+//3. Constructor Function (pattern for creating objects)
+
+//JOB of this function is to construct or CREATE an OBJECT !!
+
+/*Po PASCAL notationu prvo slovo svake reci treba da buce 
+VELIKO jer se u constructor f-jama koristi PASCAL NOTATION !!!*/
+
+//this - references an empty object
+
+/*new radi 3 stvari:
+
+1. Pravi prazan objekat (under the hood) => const x = {} -npr.
+2. Usmerava THIS ka novom PRAZNOM objektu 
+3. Vraca (return) taj novi objekat iz funkcije (under the hood) */
+
+/*Sa this. mozemo pristupiti postojecem property-u (Circle,
+console,createCircle...) a mozemo i dodati novi this.draw 
+ili this.radius npr. */
+
+function Circlee(radius) {
+  this.radius = radius;
+  this.draw = function() {
+    console.log('draw');
+  }
+}
+
+const circlee = new Circlee(1);
+
+//4. Dynamic Nature Of Objects
+
+/*Objects are dynamic which means once you create them you can
+always add new properties or methods and remove existed ones */
+
+/*Here we have object with single property (radius), and we can
+add another property (color), method (draw) 
+
+Odredjen property ili method iz objekta mozemo obrisati sa
+delete operatorom !!! */
+
+const krugcina = {
+  radiius: 1
+}
+
+krugcina.color = "yellow";
+krugcina.draw = function () {}
+
+delete krugcina.color;
+delete krugcina.draw;
+
+console.log(krugcina);
+
+/*DA NE BUDE ZABUNE OKO const (sa njim se samo ne moze
+reasignovati varijabla jer je ona konstantna - krugcina) 
+sto ne znaci da se ne mogu menjati svi propertiji unutar 
+objekta !!! */
+
+/*Znaci ne mozemo dodeliti krugcina novom objektu 
+=> krugcina = {}; ispasce greska u konzoli */ 
