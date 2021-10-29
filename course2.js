@@ -1615,7 +1615,7 @@ function Circlee(radius) {
   }
 }
 
-const circlee = new Circlee(1);
+const anotheer = new Circlee(1);
 
 //4. Dynamic Nature Of Objects
 
@@ -1647,3 +1647,24 @@ objekta !!! */
 
 /*Znaci ne mozemo dodeliti krugcina novom objektu 
 => krugcina = {}; ispasce greska u konzoli */ 
+
+//5. Constructor Property
+
+/*Every object in JS has a property called CONSTRUCTOR 
+(constructor property), and that references the function that was
+used to create an object, u prethodnim slucajevima to su bili 
+circle (const circle) i another const (another) ! */
+
+/*U konzoli u chrome-u kucam another.constructor i returnuje mi
+circle funkciju koju smo koristili za kreiranje objekta */
+
+/*Kad kucamo circle.constructor dobicemo prikaz da je u pitanju
+funkcija i Object sa velikim O sto znaci da je u pitanju 
+Constructor Function (Pascal notation-uppercase) */
+
+//Under the hood (sta mi kucamo, a sta JS vidi):
+
+//let x = {} (definisemo objekat) = let x = new Object();
+// true ili false (Boolean literals) = new Boolean();
+// '',"",`` = new String();
+// 1, 2, 3, ... (Number literals) = new Number(); 
