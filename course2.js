@@ -1668,3 +1668,65 @@ Constructor Function (Pascal notation-uppercase) */
 // true ili false (Boolean literals) = new Boolean();
 // '',"",`` = new String();
 // 1, 2, 3, ... (Number literals) = new Number(); 
+
+//6. Functions are Objects
+
+/*Jedan od zbunjujucih koncepata JS-a je taj da su 
+FUNKCIJE U STVARI OBJEKTI !!! */
+
+//Circlee funkcija u redu 1611 je objekat (evo dokaza):
+
+/*Circlee. (dobijemo sve members of the circle OBJECT, 
+PURPLE icons are METHODS-apply, bind, call, and the BLUE icons
+are PROPERTIES) */
+
+/*U konzoli (chrome) kucamo:
+
+Circlee.name => Circlee (returns the name)
+Circlee.length => 1 (returns the number of arguments)
+Circlee.constructor => (returns function that created object)
+
+Every OBJECT in JS has a constructor property (that refereces
+the function tha was used to create an object) - da bismo 
+utvrdili ko je napravio objekat kucamo Circlee.constructor */
+
+/*Kad definisemo f-ju function Circlee(radius){}, kad ovako
+deklarisemo f-ju koristeci ovu sintaksu JS engine ce u pozadini
+koristiti ovaj function constructor da napravi objekat !!! */
+
+const Krug1 = new Function ('radius', `
+this.radius = radius;
+this.draw = function() {
+  console.log('draw');
+}
+`);
+
+//Kad deklarisemo f-ju interno je to prikazano ovako (1697-1702)
+
+//Sad cemo napraviti objekat (objekatKrug) i radius ce biti (1)
+
+const objekatKrug = new Krug1(1);
+
+/*Kad u konzoli (chrome) kucamo objekatKrug (prikazace 
+krug objekat sa 2 membera - draw: f i radius: 1) */
+
+/*Methods that are available in our functions:
+
+1. Circlee.call - call method (with it we can call a function) */
+
+Circlee.call({}, 1) //mogli smo 1,2,3,4....
+
+/*Ovo iznad je kao da sam kucao const another = new Circlee(1);
+napravi prazan objekat {} i passovace kao prvi argument za call
+method i taj objekat ce odrediti kontekst of this (this. will 
+reference this {} object) ?! */
+
+/* 2. Circlee.apply - apply method (almost the same as call)
+but instead of passinf all the arguments explicitly (1,2,3,4...)
+we pass them in array [1, 2, 3, 4] - useful if you  already 
+have an array somewhere in your application and you want to pass
+an araay as the second argument of the apply method */
+
+Circlee.apply({}, [1,2,3]);
+
+//ZAKLJUCAK => U JS-U FUNKCIJE SU OBJEKTI !!!
