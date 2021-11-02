@@ -1687,7 +1687,7 @@ Circlee.length => 1 (returns the number of arguments)
 Circlee.constructor => (returns function that created object)
 
 Every OBJECT in JS has a constructor property (that refereces
-the function tha was used to create an object) - da bismo 
+the function that was used to create an object) - da bismo 
 utvrdili ko je napravio objekat kucamo Circlee.constructor */
 
 /*Kad definisemo f-ju function Circlee(radius){}, kad ovako
@@ -1722,7 +1722,7 @@ method i taj objekat ce odrediti kontekst of this (this. will
 reference this {} object) ?! */
 
 /* 2. Circlee.apply - apply method (almost the same as call)
-but instead of passinf all the arguments explicitly (1,2,3,4...)
+but instead of passing all the arguments explicitly (1,2,3,4...)
 we pass them in array [1, 2, 3, 4] - useful if you  already 
 have an array somewhere in your application and you want to pass
 an araay as the second argument of the apply method */
@@ -1730,3 +1730,89 @@ an araay as the second argument of the apply method */
 Circlee.apply({}, [1,2,3]);
 
 //ZAKLJUCAK => U JS-U FUNKCIJE SU OBJEKTI !!!
+
+
+//7. Value (Primitives) vs Reference Types
+
+/*Value Types (Primitives):
+
+1. Number
+2. String
+3. Boolean
+4. Symbol (new in ES6)
+5. Undefined
+6. Null
+
+Reference Types:
+
+1. Object
+2. Function (Functions are also Objects)
+3. Array */
+
+//Definisacemo two Primitives (xxxxl i yyyyy)
+
+let xxxxl = 10; //10 je value
+let yyyyy = xxxxl;
+
+xxxxl = 20;
+
+/*Kad u konzoli logujemo xxxxl dobicemo 20, a yyyyy dobicemo 10,
+xxxx i yyyyy su 2 nezavisne varijable (sustina) */
+
+/*Da vidimo sta ce se desiti ako koristimo Reference Type,tj.
+objekat u istoj situaciji */
+
+/*1. Promenicemo u objekat koji ima property called value i 
+umesto xxxl = 20 prebacicemo u x.vlaue = 20; */
+
+let xxl = {vrednost: 10}; // vrednost je reference
+let yyl = xxl;
+
+xxl.vrednost = 20;
+
+//U konzoli ce xxl biti 20, a i vrednost property od yyl isto 20
+
+/*Kad koristimo objekat {}, taj objekat nije sacuvan u varijabli
+u ovom slucaju to je xxl, nego negde u memoriji i adresa 
+(lokacija) te lokacije cuva se unutar varijable (xxl), znaci 
+kad kazemo da je yyl = xxl, ne kopiramo vrednost xxl-a nego 
+lokaciju (reference), drugim recima oba (xxl i yyl) idu na istu
+adresu u memoriji i kad modifikujemo taj objekat 
+(menjamo xxl ili yyl) promene su momentalno vidljive ostalim
+varijablama.
+
+/*Sustina: Primitives Primitive types) are copied by VALUE,
+Objects (Reference types) are copied by their REFERENCE */
+
+let numero = 10;
+
+function increase(numero) {
+  numero++;
+  console.log(numero); //Dodao sam ovo i sad je 11 u konzoli
+}
+
+increase(numero);
+
+console.log(numero); /*Ovde je 10 
+(jer je van objekta-OUT OF THE SCOPE) PRIMITIVES ARE COPIED
+BY THEIR VALUE !!! */
+
+//ISTO OVO SAMO PREKO REFERENCE TYPE-NAPRAVICEMO KAO OBJEKAT
+
+let objj = {value: 10};
+
+function increease (objj) { //objj je local parameter i on usmerava na isti objekat koji je definisan u redu 1802
+  objj.value++;
+}
+
+increease(objj); //Kad pasujemo objj, on je pasovan by reference
+console.log(objj);
+
+/* Bice 11 u konzoli (objekat sa vrednoscu 11) */ 
+
+//8. Enumerating Properties of an Object (Object is not iterable)
+
+//Arrays are iterable
+//Objects are NOT !!!
+
+
