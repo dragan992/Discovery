@@ -1816,3 +1816,88 @@ console.log(objj);
 //Objects are NOT !!!
 
 
+//Recap kod Srkija 13 i 14.11.2021
+
+var brat = "Srki";
+
+{
+  var nejmic = "Beli";
+  // let imenica = "crni";
+}
+console.log(nejmic);
+// console.log(imenica);
+
+function sprdnja(zivotinja,kolikoIhIma,staZivotinjaKaze) {
+  console.log(kolikoIhIma + " " + zivotinja + " kazu" + " " + staZivotinjaKaze );
+  console.log(`${kolikoIhIma} ${zivotinja} kazu ${staZivotinjaKaze}`);
+}
+// sprdnja("pacova",2,"vi ste ludi");
+// var mamama = sprdnja("lav", 10, "lajn sam ja");
+// console.log(mamama);
+
+var nestoo = "pevac";
+
+
+let iq = 49;
+
+if (iq >= 50 && iq <= 100) {
+console.log("Slabasan sam");  
+} else if (iq >= 100 && iq <= 150) {
+  console.log("Nisam los");
+} else if (iq > 150) {
+  console.log("Prejak sam");
+}else {
+  console.log("Glup ko racku");
+}
+//100-150 i ispod 50
+
+if (100) {
+  
+} else {
+  
+}
+
+console.log(window);
+
+let nekiObj = {value: 50};
+
+let onajObj = nekiObj;
+
+console.log(nekiObj);
+console.log(onajObj);
+
+
+var numerro = 10;
+
+
+function uvecanjee(numerro) {
+  var srkii  = 101;
+
+  this.numerro++;
+}
+uvecanjee(numerro);
+console.log(numerro);
+
+// console.log(srkii);
+
+
+const userr = {
+  id: 7,
+  password: 1234,
+  name: "Srki"
+};
+// console.log(userr, " = user");
+console.log( "MAJKU MU JEBEM U PICKU",userr["id"]);
+console.log( "MAJKU MU JEBEM U PICKU",userr["password"]);
+console.log( "MAJKU MU JEBEM U PICKU",userr["name"]);
+
+
+for (var key in userr) {
+  // console.log(key); //Koje su mi sve vr.koje su bile kad sam ovo odstampao? (id,password i name)
+  console.log("Ovo su sve vrednosti",userr[key]); //Key = id, userr["id"] =
+}
+
+console.log(Math.PI);
+
+const nekoIme = [7, 1234, "Srki"];
+console.log(nekoIme[2]);
