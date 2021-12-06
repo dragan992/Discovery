@@ -1963,3 +1963,206 @@ da proverimo da li property ili method postoji u objektu,
 koristicemo IN operator !!! */
 
 //9. Cloning an Object
+
+/* Recimo da zelimo napraviti kopiju ovog objekta ispod
+
+const circle = {
+  radius: 1,
+  draw() {
+    console.log('draw')
+  }
+};
+
+Znaci hocemo kopiju CIRCLE OBJEKTA, to cemo uraditi preko
+FOR IN (loopa), kreiracemo objekat npr. ANOTHER (ime obj.)
+*/
+
+/* To ce izgledati ovako:
+
+const another = {};
+
+for (let key in circle)
+  another[key] = circle[key];
+
+To je kao da smo napisali:
+
+another['radius'] = circle ['radius']; - OVO JE UNDER THE HOOD
+
+Sad cemo na kraju console logovati:
+
+console.log(another); U konzoli bice radius:1, draw:f */
+
+//Drugi primer:
+
+const covjek = {
+  tezak: 82,
+  dodati() {
+    console.log('Debeo je');
+  }
+};
+
+const sledecii = {};
+
+for (let key in covjek)
+  sledecii[key] = covjek[key];
+
+console.log(sledecii);
+
+//OVO JE STARI NACIN ZA KLONIRANJE OBJEKTA !!! IMA I BOLJIH.
+
+//Drugi nacin je da koristimo Object.assign (method)
+
+Object.assign({}, covjek); 
+
+/*Ovaj method kupi sve propertije i methode u ovom source 
+objektu (covjek) i kopira ih u ovaj prazan novi objekat 
+ispred {} (NE MORA BITI PRAZAN, MOZEMO DODATI PROPERTI KAKAV
+GOD ZELIMO NAKNADNO) i returnuje rezultat u 
+const sledecii = Object.assign({}, covjek); */
+
+/*Ishod konacan
+
+const sledecii = Object.assign({}, covjek);
+console.log(sledecii);
+
+TO JE JEDNAKO KAO DA SMO NAPISALI OVO:
+
+const sledecii = {};
+
+for (let key in covjek)
+  sledecii[key] = covjek[key];
+
+console.log(sledecii); */
+
+//Primer na licnom objektu (izmislicu ga):
+
+const igraliste = {
+  dugacko:100,
+  siroko:50,
+  igraci() {
+    console.log("Ima ih 11");
+  }
+};
+
+const drugoIgraliste = Object.assign({
+  bojaTrave:"zelena"
+}, igraliste);
+console.log(drugoIgraliste);
+
+/*U konzoli ce prikazati sve propertije i metode iz objekta 
+igraliste (sto znaci da smo uspesno klonirali objekat igraliste
+u objekat drugoIgraliste + dodali smo u empty object par
+propertija cisto da vidimo da moze - boja trave)*/
+
+//POSTOJI JOS LAKSI NACIN TRECI (NAJLAKSI) !!! 
+
+/* SPREAD OPERATOR (...)
+
+Npr. const drugoIgraliste = {...igraliste};
+console.log(drugoIgraliste);
+
+On sve propertije i methode iz prvog objekta ubacuje u drugi !!! */
+
+//Da probamo:
+
+const treceIgraliste = {...drugoIgraliste};
+console.log(treceIgraliste);
+
+/*ZAKLJUCAK, IMA 3 NACINA KLONIRANJA OBJEKATA (FOR IN loop,
+Object.assign i ...), A NAJBOLJI JE POMOCU SPREAD OPERATORA (...) !!! */
+
+
+//10.Garbage Collection
+
+/*In low level languagues (C,C++) when creating an object, we
+need to alocate memory to it, and when we are done, we have to
+dealocate memory, but hat is not the case with JS */
+
+/*At the time when we initialize an object in JS, memory is 
+automatically alocated to this object, and when we are done 
+using we don't have do dealocate memory becouse of Garbage Collector
+
+Job of the Garbage Collector is to find the variables or 
+constants that are no longer used and to dealocate the memory
+that was alocated to them earlier (it runs in background). */
+
+//11. Math (Built-in objects in JS - Array, Date, Math and String)
+
+/*Na guglu kucamo JavaScript math i dobijamo objasnjenje da 
+je Math built-in objekat koji sadrzi propertije i metode za 
+matematicke konstante i funkcije. */
+
+/*Skrolujuci dole naici cemo na Properties (npr.Math.PI-3.14)
+takodje na Methode (npr.Math.abs(x)- returnuje apsolutnu 
+vr.broja-ako mu damo negativnu vr. vratice nam pozitivnu) */
+
+//Ima mnostvo metoda i svaki ima dokumentaciju i objasnjenje
+
+/*Probacemo Math.random() u konzoli browsera i svaki put
+dobijamo novi random broj izmedju 0 i 1 */
+
+//Math.round(1.9) - zaokruzice broj na najblizi okrugao
+
+//Math.ax(1, 2, 3, 4) - pokazace najveci, isto kao i MIN
+
+
+//12. String (isto Built-in object)
+
+/* Postoje 2 vrste stringova (String primitive i String object) */
+
+//String Primitive:
+const messagee = 'hi';
+
+//String object (u stvari constructor function):
+const anotherString = new String('hi');
+
+/*Kad u konzoli chrome-a proverimo tip (typeof), messagee je
+("string")-primitive, a anotherString ("object")-objekat */
+
+/*Ipak kod String Primitive-a kad kucamo message. on ce se 
+isponasati kao da je u pitanju objekat i dace nam vise opcija */
+
+//Isto u guglu kucamo JavaScript string da vidimo dokumentaciju
+
+
+//Probacemo par opcija:
+
+//String Primitive
+const porukica = "Ovo je moja prva porukica";
+
+//Kucamo u konzoli porukica.length (bice 25)
+//porukica[0] - returnuje 1.slovo (O)
+
+/*Ako zelimo da utvrdimo sadrzi li ovaj string neku rec npr.
+koristicemo porukica.includes("prva") - ako je sadrzi bice TRUE */
+
+/*porukica.startsWith("Ovo") - bice TRUE, a ako stavimo malo
+slovo o, kao "ovo", bice FALSE (case sensitive je) !!! */
+
+//porukica.endsWith("a") - TRUE
+
+//porukica.indexOf("moja") - 7
+
+/*porukica.replace("prva", "druga")-ovo pravi novi string a 
+stari ostaje (kad kucamo porukica - ispisace ovo je moja prva..) */
+
+/*porukica.toUpperCase() - returnuje novi string velikim slovima */
+
+/*porukica.trim()-brise sve empty spaceove na pocetku i kraju 
+poruke ako ih je bilo nakon navodnika i pre zavrsetka navodnika */
+
+
+//porukica,trimLeft() - brise samo s leva prazne spaceove
+
+/*Od ranije imamo ESCAPE NOTATION koji je slabo koristan
+/n - newline
+/r - carriage return
+/t - tab 
+
+Sve to moze lepse i lakse da se napise sa backtickom `` */
+
+//porukica.split(" ") - svaku rec ce odvojiti ponaosob\
+
+
+//13. Template Literals
+
