@@ -535,7 +535,7 @@ console.log(kvadrat(2));//kvadrat(2) je argument
 let x = 10;
 let y = 3;
 
-console.log(x + y); //addition - Expression in JS is sth.that produces a  value
+console.log(x + y); //addition - Expression in JS is sth.that produces a value
 console.log(x - y); //subtraction
 console.log(x * y); //multiplication
 console.log(x / y); //division
@@ -1194,7 +1194,7 @@ console.log(tipDrugara);
 
 FOR...IN koristimo za ponavljanje properties of an OBJECT
 
-FOR...OF koristimo za ponavljanje elemenats or items in an ARRAY */
+FOR...OF koristimo za ponavljanje elements or items in an ARRAY */
 
 /*7. BREAK AND CONTINUE
     (keywords thah can change how the loop behaves)*/
@@ -1593,7 +1593,7 @@ console.log(circle3);
 
 //JOB of this function is to construct or CREATE an OBJECT !!
 
-/*Po PASCAL notationu prvo slovo svake reci treba da buce 
+/*Po PASCAL notationu prvo slovo svake reci treba da bude 
 VELIKO jer se u constructor f-jama koristi PASCAL NOTATION !!!*/
 
 //this - references an empty object
@@ -1763,7 +1763,7 @@ xxxx i yyyyy su 2 nezavisne varijable (sustina) */
 objekat u istoj situaciji */
 
 /*1. Promenicemo u objekat koji ima property called value i 
-umesto xxxl = 20 prebacicemo u x.vlaue = 20; */
+umesto xxxl = 20 prebacicemo u x.value = 20; */
 
 let xxl = {vrednost: 10}; // vrednost je reference
 let yyl = xxl;
@@ -1781,7 +1781,7 @@ adresu u memoriji i kad modifikujemo taj objekat
 (menjamo xxl ili yyl) promene su momentalno vidljive ostalim
 varijablama.
 
-/*Sustina: Primitives Primitive types) are copied by VALUE,
+/*Sustina: Primitives (Primitive types) are copied by VALUE,
 Objects (Reference types) are copied by their REFERENCE */
 
 let numero = 10;
@@ -1810,10 +1810,6 @@ console.log(objj);
 
 /* Bice 11 u konzoli (objekat sa vrednoscu 11) */ 
 
-//8. Enumerating Properties of an Object (Object is not iterable)
-
-//Arrays are iterable
-//Objects are NOT !!!
 
 
 //Recap kod Srkija 13 i 14.11.2021
@@ -1841,7 +1837,7 @@ var nestoo = "pevac";
 let iq = 49;
 
 if (iq >= 50 && iq <= 100) {
-console.log("Slabasan sam");  
+  console.log("Slabasan sam");  
 } else if (iq >= 100 && iq <= 150) {
   console.log("Nisam los");
 } else if (iq > 150) {
@@ -1872,7 +1868,7 @@ var numerro = 10;
 
 function uvecanjee(numerro) {
   var srkii  = 101;
-
+  
   this.numerro++;
 }
 uvecanjee(numerro);
@@ -1901,3 +1897,69 @@ console.log(Math.PI);
 
 const nekoIme = [7, 1234, "Srki"];
 console.log(nekoIme[2]);
+
+/*8. Enumerating Properties of an Object (Object is not iterable)
+    PRIKAZIVANJE  PROPERTIJA OBJEKTA (U KONZOLI)
+
+
+//Arrays are iterable
+//Objects are NOT !!!
+
+
+/*Za ovo je vazno podsetiti se FOR In (loop koji ponavlja 
+propertije objekta) i FOR of (ponavlja porpertije array-a)
+
+const circle = {
+  radius: 1,
+  draw() {
+    console.log('draw')
+  }
+};
+
+for (let key in circle)
+  console.log(key, circle[key]);         FOR IN loop
+
+Koristim BRACKET NOTATION  to get the value of that property
+(bice radius 1 i draw f-kao vrednost je funkcija)
+
+Ako probamo sa FOR OF loop-om, bice greska (circle is not
+  iterable-jer je objekat)
+
+for (let key of circle) 
+  console.log(key);
+
+POSTOJI NACIN PREKO FOR LOOP-A da se uradi:
+
+for (let key of Object.keys(circle))
+  console.log(key);
+
+Sa ovim dobijamo sve key-eve objekta i returnovace kao array!!!
+(Prikazace u konzoli radius i draw)
+
+S obzirom da su Arrays iterable, mozemo korititi na ovaj nacin.
+
+Object. - je BUILT IN CONSTRUCTOR FUNCTION
+
+Druga opcija je:
+
+for (let entry of Object.entries(circle))
+  console.log(entry);
+(Prikazace radius,1 i draw,f-funcrtion)
+
+Svaki entry bice prikazan kao array znaci u []
+
+To je bio jos jedan nacin da se pristupi propertijima i 
+methodima jednog objekta !!!
+
+Mozemo jos sa IN operatorom uraditi ovo:
+
+if ('radius' in circle); console.log("YES");
+
+Dobicemo YES u konzoli.
+
+ZAKLJUCAK: koristimo FOR IN (loop), a mozemo koristiti i
+FOR OF(u kombinaciji sa Object.keys ili Object.entries), a 
+da proverimo da li property ili method postoji u objektu, 
+koristicemo IN operator !!! */
+
+//9. Cloning an Object
