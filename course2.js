@@ -2164,5 +2164,88 @@ Sve to moze lepse i lakse da se napise sa backtickom `` */
 //porukica.split(" ") - svaku rec ce odvojiti ponaosob\
 
 
-//13. Template Literals
+//13. Template Literals ``
 
+/* Ucili smo nekoliko vrsta literals-a:
+
+1. Object - {}
+2. Boolean - true, false
+3. String - '', ""
+4. Template literals (novo) - ``
+
+Template literals koristimo zarad lepseg koda, umesto da
+koristimoo /n, /t i slicno, sav tekst koji pisemo stavicemo u
+`` - template literals i on ce biti ispisan bas onako kako 
+smo ga i napisali (sa enterima, tabovima i svim ostalim) */
+
+//Primer String Literala vs Template literal
+
+const stringLiteral = 
+'This is my\n' +
+'\'first\' message';
+
+console.log(stringLiteral);
+
+//Temp. literal
+
+const templateLiteral = `This is my
+first message`;
+
+console.log(templateLiteral);
+
+
+//Template Literal je odlicna opcija jer mozemo da ispisemo stagod
+
+const saljemMail = 
+`Hi Mosh,
+
+Thank you for joining mu mailing list
+
+Regards,
+Dragan`;
+
+console.log(saljemMail);
+
+//${} - ovo je PLACEHOLDER (povlaci info koji zadamo unutra)
+/*Mozemo staviti stagod - ${2+3} - izaci ce 5 na kraju u konzoli,
+dakle bilo koji expression (npr.f-ja) that produces value 
+je okej i radice */
+
+//Primer
+
+const imeKontakta = "Dragan";
+
+const drugiMail = 
+`Hi ${imeKontakta},
+
+Thank you for joining mu mailing list
+
+Regards,
+Dragan`;
+
+console.log(drugiMail); //Za ime ce staviti Dragan jer ga vuce
+
+//14. Date (built-in object)
+
+/*Ima vise nacina da se kreira Date Object
+
+1.Preko constructior functiona (Date je const.f.) */
+
+const now = new Date(); //Ako ne stavimo parametar dace sadasnje vreme
+
+const date1 = new Date('May 11 2018 09:00');
+
+const date2 = new Date(2018, 4, 11, 9, 0) 
+
+
+now.setFullYear(2017);
+
+//Imamo GET i SET metode 
+
+//0 je januar, 11 decembar
+/*Ide godina, mesec, dan, sat i minut (ako je negde 0 ne 
+stavljamo nista, podarzumevace kao da smo i stavili) */
+
+//U terminal kucamo now.toDateString() i pokazace datum...
+//now.toTimeString() - pokazace vreme
+//no.toISOString() - koristi se za Backend
