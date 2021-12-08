@@ -2249,3 +2249,47 @@ stavljamo nista, podarzumevace kao da smo i stavili) */
 //U terminal kucamo now.toDateString() i pokazace datum...
 //now.toTimeString() - pokazace vreme
 //no.toISOString() - koristi se za Backend
+
+//Exercise 1 (Adress Object):
+
+let adress = {
+  street: 'Dobrinjska',
+  ciy: 'Belgrade',
+  zip: 11070,
+};
+
+function showAddres(adress){
+  for (let key in adress)
+  console.log(key, adress[key]);
+}
+
+showAddres(adress);
+
+//Exercise 2 (Factory and Constructor Function):
+
+//1. Factory
+
+function createAdress(street, city, zip) {
+  return {
+  street: 'Dobrinjska',
+  ciy: 'Belgrade',
+  zip: 11070,
+  };
+}
+
+const adresss = createAdress('a','b','c');
+console.log(adresss);
+
+//2.Constructor
+
+function Prikaziadresu (street, city, zip) {
+  this.street = street;
+  this.city = city;
+  this.zip = zip;
+}
+
+const pokazivacAdrese = new Prikaziadresu('a', 'b', 'c');
+console.log(pokazivacAdrese);
+
+
+//Exercise 3 (Object Equality)
