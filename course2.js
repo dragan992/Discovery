@@ -2292,4 +2292,67 @@ const pokazivacAdrese = new Prikaziadresu('a', 'b', 'c');
 console.log(pokazivacAdrese);
 
 
-//Exercise 3 (Object Equality)
+//Exercise 3 (Object Equality) 1.2 Objects are equal, 2. They are the same?
+
+//Koristicemo Objekat adresa za ovaj exercise
+
+let testAdresa1 = new testAdresa('a','b','c');
+let testAdresa2 = new testAdresa('a','b','c');
+let testAdresa3 = testAdresa1;
+
+function testAdresa(ulica, grad, postanskiBroj) {
+  this.ulica = ulica;
+  this.grad = grad;
+  this.postanskiBroj = postanskiBroj;
+}
+
+//Krenucemo od druge tacke jer je laksa
+
+function areSame(testAdresa1,testAdresa2) {
+  return testAdresa1 === testAdresa2;
+}
+
+//Prva je teza i treba da proverimo da li je svaki property =
+
+function areEqual(testAdresa1,testAdresa2) {
+  return testAdresa1.ulica === testAdresa2.ulica &&
+  testAdresa1.grad === testAdresa2.grad &&
+  testAdresa1.postanskiBroj === testAdresa2.postanskiBroj
+}
+
+//Sad sa pozovemo obe funkcije da vidimo ishod
+
+console.log(areSame(testAdresa1,testAdresa2)); //False
+console.log(areEqual(testAdresa1,testAdresa2)); //True
+console.log(areSame(testAdresa1, testAdresa3)); //Sad je true
+
+//False je jer se cuvaju na razlicitim mestima u memoriji
+
+/*Ako hocemo da bude true, dodamo let testAdress3 = testAdress1;
+i console.log(areSame(testAdresa1,testAdresa3)); */
+
+//Exercise 4 (Blog Post Object)
+
+/*Napraviti objekat sa ovim propertijima:
+
+1.Title
+2.Body
+3.Author
+4.Views
+5.Comments (svaki koment treba da ima neki property - author, body)
+6.isLive
+
+Dati svakom propertiju neki value (nije bitno kakav) */
+
+let post = {
+  title: "Dnevne novine",
+  body: "Foto, Video",
+  author: "Zeljko Mitrovic",
+  views: 300000,
+  comments: [
+    {author: "Zeljko Mitrovic", body:"Foto, Video"}
+  ],
+  isLive: true
+};
+
+console.log(post);
