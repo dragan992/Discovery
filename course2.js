@@ -2103,7 +2103,7 @@ dobijamo novi random broj izmedju 0 i 1 */
 
 //Math.round(1.9) - zaokruzice broj na najblizi okrugao
 
-//Math.ax(1, 2, 3, 4) - pokazace najveci, isto kao i MIN
+//Math.max(1, 2, 3, 4) - pokazace najveci, isto kao i MIN
 
 
 //12. String (isto Built-in object)
@@ -2227,15 +2227,15 @@ console.log(drugiMail); //Za ime ce staviti Dragan jer ga vuce
 
 //14. Date (built-in object)
 
-/*Ima vise nacina da se kreira Date Object
+/*Ima vise nacina da se kreira Date Object:
 
-1.Preko constructior functiona (Date je const.f.) */
+Preko constructior functiona su svi nacini (Date je const.f.) */
 
 const now = new Date(); //Ako ne stavimo parametar dace sadasnje vreme
 
 const date1 = new Date('May 11 2018 09:00');
 
-const date2 = new Date(2018, 4, 11, 9, 0) 
+const date2 = new Date(2018, 4, 11, 9, 0);
 
 
 now.setFullYear(2017);
@@ -2248,7 +2248,7 @@ stavljamo nista, podarzumevace kao da smo i stavili) */
 
 //U terminal kucamo now.toDateString() i pokazace datum...
 //now.toTimeString() - pokazace vreme
-//no.toISOString() - koristi se za Backend
+//now.toISOString() - koristi se za Backend
 
 //Exercise 1 (Adress Object):
 
@@ -2356,3 +2356,35 @@ let post = {
 };
 
 console.log(post);
+
+//Exercise 5 (Constructor Functions)
+
+function Postic(title, body, author, views) {
+  this.title = title;
+  this.body= this.body;
+  this.author = author;
+  this.views = 0;
+  this.comments = [];
+  this.isLIve = false; //Nije jos objavljen post pa false
+}
+//Views and comments ne stavljamo u parametar gore jer post "nije jos objavljen pa imaju po 0"
+//Gledamo da imamo sto manje parametara (lakse se koristi f-ja)
+
+let post1 = new Postic('a','b','c');
+
+console.log(post1);
+
+//Exercise 6 (Price Range Objects)
+
+let priceRanges = [
+  { simbol: $, skupoca: "Jeftino", minimumPoOsobi: 0, maxPoOsobi: 10 },
+  { simbol: $$, skupoca: "Osrednje", minimumPoOsobi: 11, maxPoOsobi: 20 },
+  { simbol: $$$, skupoca: "Skupo", minimumPoOsobi: 21, maxPoOsobi: 50 },
+];
+
+let restorani = [
+  {prosecnoPoOsobi: 5}
+]
+
+//LUD EXERCISE (ZA RAZMISLJANJE)
+
