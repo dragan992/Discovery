@@ -2376,15 +2376,76 @@ console.log(post1);
 
 //Exercise 6 (Price Range Objects)
 
-let priceRanges = [
-  { simbol: $, skupoca: "Jeftino", minimumPoOsobi: 0, maxPoOsobi: 10 },
-  { simbol: $$, skupoca: "Osrednje", minimumPoOsobi: 11, maxPoOsobi: 20 },
-  { simbol: $$$, skupoca: "Skupo", minimumPoOsobi: 21, maxPoOsobi: 50 },
-];
+// let priceRanges = [
+//   { simbol: $, skupoca: "Jeftino", minimumPoOsobi: 0, maxPoOsobi: 10 },
+//   { simbol: $$, skupoca: "Osrednje", minimumPoOsobi: 11, maxPoOsobi: 20 },
+//   { simbol: $$$, skupoca: "Skupo", minimumPoOsobi: 21, maxPoOsobi: 50 },
+// ];
 
-let restorani = [
-  {prosecnoPoOsobi: 5}
-]
+// let restorani = [
+//   {prosecnoPoOsobi: 5}
+// ]
 
-//LUD EXERCISE (ZA RAZMISLJANJE)
+//LUD EXERCISE (ZA RAZMISLJANJE) - proveriti gresku kad otkomentarisemo
+
+//ARRAYS (6th chapter of the course)
+
+//1.Introduction
+
+/*U ovom chapteru naucicemo sledece:
+
+1.Adding new elements (to arrays)
+2.Finding elements
+3.Removing elements
+4.Splitting arrays
+5.Combining arrays */
+
+//2.Adding elements (dodavanje elemenata u nizove)
+
+const cifre = [3, 4];
+
+//End (dodavanje cifara na kraj niza) - PUSH
+cifre.push(5, 6);
+
+//Beginning (dodavanje cifara na pocetak niza) - UNSHIFT
+cifre.unshift(1, 2);
+
+//Middle (dodavanje cifara u sredinu niza) - SPLICE
+cifre.splice(2, 0, 'a', 'b');
+
+console.log(cifre);
+
+//3.Finding elements (Primitives) za Reference Types je drugacije
+
+/*Koristimo imeArraya.indexOf(npr.'a'); 
+
+Ako u array-u imamo npr. 'a', pokazace indeks tog elementa u 
+nizu (lokaciju u nizu-pocevsi od 0,1,2...),a ako nemamo u
+konzoli ce izbaciti -1. */
+
+const randomBrojevi = [1, 2, 3, 4];
+
+console.log(randomBrojevi.indexOf('a'));  //Izbacice -1
+console.log(randomBrojevi.indexOf(3));  //Izbacice 2
+console.log(randomBrojevi.indexOf('3'));  //Izbacice -1 (jer ga imamo kao broj, a ne kao string)
+
+/*Imamo i lastIndexOf opciju u slucaju da se neki element 
+ponavlja u nizu pa hocemo da nadjemo njegovu zadnju lokaciju u
+nizu */
+
+//Primer sa lastIndexOf
+
+const lastIndexOfVezba = [1, 2, 3, 1, 4];
+
+console.log(lastIndexOfVezba.lastIndexOf(1));
+//Pokazace 3 (jer se nalazi na 3. mestu zadnja jedinica)
+
+//Da proverimo da li neki element postoji u nizu, mozemo ovako
+
+console.log(lastIndexOfVezba.lastIndexOf(1) !== -1);
+//Ako je ovo true, znaci da element postoji u nizu (RUZNO)
+
+//OVO JE LAKSI I BOLJI NACIN DA SE POSTIGNE ISTO !!! (.INCLUDES)
+
+console.log(lastIndexOfVezba.includes(1)); //Bice true
 
