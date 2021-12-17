@@ -2449,3 +2449,62 @@ console.log(lastIndexOfVezba.lastIndexOf(1) !== -1);
 
 console.log(lastIndexOfVezba.includes(1)); //Bice true
 
+//4.Finding elements (Reference Types)
+
+//Napravicemo array courses sa nekoliko objekata kao primer:
+
+const coursess = [
+  { id: 1, name: "Nebitno" },
+  { id: 2, name: "Bitno" },
+];
+
+//Zato sto je Reference Type, metod pronalaska od Primitive ne radi
+
+console.log(coursess.includes({id:1, name: "Nebitno"})); //FALSE
+
+//Kod Reference Type, pronalazimo ovako (JS array find):
+
+const kursevi = coursess.find(function(kursevi) {
+ return kursevi.name === "Nebitno"; //Find method returnuje prvi match koji se poklapa sa kriterijumom (kursevi.name === "Nebitno")
+});
+
+console.log(kursevi);
+
+//Postoji i findIndex metod
+
+const kursevii = coursess.findIndex(function(kursevi) {
+  return kursevi.name === "Nebitno";
+ });
+
+console.log(kursevii); //Dace 0, jer je Nebitno na 1.poziciji
+//A bilo bi -1 da sam stavio neko nepostojece ime
+
+//5.Arrow Functions => - tako izgleda (skracuje kod)
+
+/* Umesto da pisemo ovako
+
+const kursevi = coursess.find(function(kursevi) {
+ return kursevi.name === "Nebitno"; //Find method returnuje prvi match koji se poklapa sa kriterijumom (kursevi.name === "Nebitno")
+});
+
+Ovo mozemo napisati pomocu Arrow Funkcije ovako po koracima:
+
+Arrow Function menja parametar funkcije za pocetak!
+
+const kursevi = coursess.find((kursevi) => {
+  return kursevi.name === "Nebitno"
+});
+
+Ako f-ja ima single parameter, obrisacemo zagrade (), a ako nema
+nikakav parametar, stavicemo prazne zagrade (), ako je funkcija
+u jednoj liniji koda i returnuje vrednost, mozemo obrisati return
+i staviti sve u jenu liniju koda i obrisati {}
+
+Krajnji izgled koda:
+
+
+const kursevi = coursess.find(course => course.name === "Nebitno");
+
+console.log(kursevi);
+
+ISHOD JE ISTI, A KOD CISTIJI !!! */
