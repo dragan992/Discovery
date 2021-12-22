@@ -2508,3 +2508,166 @@ const kursevi = coursess.find(course => course.name === "Nebitno");
 console.log(kursevi);
 
 ISHOD JE ISTI, A KOD CISTIJI !!! */
+
+//6.Removing Elements
+
+const brisanjeBrojeva = [1, 2, 3, 4];
+
+//Elemente mozemo obrisati from the end, beggining or middle
+
+//Removing elements from the END (.pop())
+
+//brisanjeBrojeva.pop() - da nisam zakom. dole bi bio jedan manje
+
+const lastNumber = brisanjeBrojeva.pop();
+console.log(brisanjeBrojeva);
+console.log(lastNumber); //Bice 3 [1, 2, 3];
+
+//Removing elements from the BEGINNING (.shift())
+
+//brisanjeBrojeva.shift()
+
+const firstNumber = brisanjeBrojeva.shift();
+console.log(firstNumber); /*Removovao je 1, ako u konzoli kucamo
+nakon ovoga brisanjeBrojeva, ostali su 2 i 3 (4 je ranije obrisan) */
+
+//Removing elements from the MIDDLE
+
+//brisanjeBrojeva.splice() - kao i za dodavanje (CUDNO)
+
+brisanjeBrojeva.splice(2, 2);
+console.log(brisanjeBrojeva); /*Ostace 2 i 3 jer su gore vec
+dodavani i brisani brojevi pa se poremeti, a ako zakomentarisemo
+prethodne kodove pokazalo bi da su ostali 1 i 2 (kako i treba) */
+
+//7.Eptying an Array (removing all the elements from an array)
+
+let punArray = [1, 2, 3, 4];
+let nekiArray = punArray; //Ovo je za solution 2
+//1.Solution (reasign array to some new EMPTY array)
+
+punArray = []; //Da je gore bio const, ne bi mogli ovako
+
+console.log(punArray); // Pokazace prazan niz
+console.log(nekiArray);//Pokazace [1, 2, 3, 4] - referenca
+
+/*Ova opcija radi ako nema nikakvih referenci koje vuku na
+originalni array od ranije npr.(let nekiArray = punArray)-negde
+gore iznad ovog punArray = []; jer ce vr. another ostati
+[1, 2, 3, 4], a dole ispod ce biti prazan niz[] */
+
+//2.Solution (ako imamo multiple references to the original array)
+
+punArray.length = 0;
+console.log(punArray); //Poubijace sve elemente niza
+console.log(nekiArray); /*Sad BI TREBAO BITI prazan niz, ALI 
+NIJE zbog 2549 reda (punArray = []), gde ga red 2561 vraca u 
+prvobitno stanje i vidi se ceo array (ako ne zakomentarisem red
+2549) */
+
+//3.Solution (splice method)
+
+punArray.splice(0, punArray.length);
+console.log(punArray); //Poubijace sve elemente niza
+console.log(nekiArray); /*Opet zbog linije 2549 gresi 
+(komentarisati je i sve bude ok) */
+
+//NIJE NEKA OPCIJA ZA PREPORUKU (BOLJE 1. ili 2.)
+
+//4.Solution (pop method) - mozemo ga staviti u loop
+
+while (punArray.length > 0)
+  punArray.pop();
+
+console.log(punArray); //Poubijace sve elemente niza
+console.log(nekiArray);//Ista prica 2549
+
+/*OVO NIJE ZA PREPORUKU AKO IMA PUNO OBJEKATA U ARRAY-U,
+zvace .pop method npr.milion puta (a i ruzno izgleda kod) */
+
+//NAJBOLJE 1. ili 2.OPCIJA !!!
+
+//8.Combining and Slicing Arrays (dodavanje i razbijanje na 2 dela)
+
+const prviArray = [1, 2, 3];
+const drugiArray = [4, 5, 6];
+
+//Za DODAVANJE koristi se .concat (method) - concatinate !!!
+
+//prviArray.concat(drugiArray);
+
+const combined = prviArray.concat(drugiArray);
+console.log(combined);//[1, 2, 3, 4, 5, 6]-bice ovako
+
+//Za RAZBIJANJE koristi se .slice (method) !!!
+
+const sliced = combined.slice(2,4);
+console.log(sliced);//Isekao je prva dva broja (3 i 4)
+
+//DRUGI NACIN (ubaci se index) !!!
+
+const slicedSaIndexom = combined.slice(2);
+console.log(slicedSaIndexom);//Sve od 2.broja u nizu ce ostati (3, 4, 5, 6)
+
+/*TRECI NACIN (izbacimo starting index combined.slice()) i onda
+dobijamo kopiju originalnog arraya bez izbacenih elemenata */
+
+const slicedBezIndexa = combined.slice();
+console.log(slicedBezIndexa);//Dobicemo ceo niz [1 do 6]
+
+
+/* RECAP - za koobinovanje 2 arraya koristimo CONCAT method, 
+ako hocemo da isecemo array koristimo SLICE method (s tim sto se
+razlikuje ako imamo Primitives u arrayu (pointuje na njihove
+vrednosti) ili Objekte, pointovace na reference objekta ako su
+oni u pitanju) */
+
+//PRIMER ZA REFERENCE TYPE (OBJEKAT)
+
+const prviReferenceArray = [{ id: 1}];
+const drugiPrimitiveArray = [4, 5, 6];
+
+const kombinovanje = prviReferenceArray.concat(drugiPrimitiveArray);
+
+prviReferenceArray[0].id = 10; //Menjamo vr.id-a sa 1 na 10 (u objektu)
+
+const sliceReferenceType = kombinovanje.slice()
+
+console.log(kombinovanje);
+console.log(sliceReferenceType);
+
+/*Kopirace REFERENCU prviReferenceArray-a i vrednost 
+drugiPrimitiveArray-a (videti konzolu red 2634) */
+
+//9.The Spread Operator (cistiji nacin za dodavanje array-a)
+
+const istoPrvi = [1, 2, 3];
+const istoDrugi = [4, 5, 6];
+
+/*Koristimo spread operator (...) da dodamo svaki pojedinacni
+clan prvog i drugog niza */
+
+const spojeniNizovi = [...istoPrvi, ...istoDrugi];
+//Ovo je kao da pise [1, 2, 3, 4, 5, 6];
+
+console.log(spojeniNizovi);
+
+/*Ako hocemo usput da dodamo nesto jos svoje uz spajanje nizova
+mozemo to uraditi jednostavnim dopisivanjem gde nam odgovara */
+
+//Primer:
+
+const spojeniNizoviSaDodavanjem = [...istoPrvi, "IDEMO", ...istoDrugi, 111];
+
+console.log(spojeniNizoviSaDodavanjem);//PRIKAZACE SVE LEPO
+
+/*Ako hocemo da napravimo novi array koji sadrzi sve iz 
+spojeniNizoviSaDodavanjem array-a, moze ovako: */
+
+const svesadrzaniArray = [...spojeniNizoviSaDodavanjem];
+
+console.log(svesadrzaniArray);
+
+//PREPORUKA ZA DODAVANJE NIZOVA NA OVAJ NACIN !!!
+
+
