@@ -2670,4 +2670,119 @@ console.log(svesadrzaniArray);
 
 //PREPORUKA ZA DODAVANJE NIZOVA NA OVAJ NACIN !!!
 
+//10.Iterating an Array (ponavljanje niza)
 
+//Za ponavljanje nizova (array-a) koristi se FOR OF loop
+
+const ponavljanjeNiza = [1, 2, 3];
+
+for (let number of ponavljanjeNiza)
+  console.log(number); //ponovice 1, 2 i 3
+
+//Drugi nacin je FOR EACH method (.forEach) !!!
+
+ponavljanjeNiza.forEach(function(number) {
+  console.log(number);
+});
+
+/*Kad pozovemo forEach method, ova f-ja gore ce biti izvrsena za 
+svaki element niza [1,2,3], znaci svaki element ce biti passed
+kao argument ove f-je */
+
+//Kod se moze skratiti pomocu ARROW Functiona
+
+ponavljanjeNiza.forEach(number => console.log(number));
+
+//Ako nam treba da vidimo i index (poziciju), onda cemo ovako
+
+ponavljanjeNiza.forEach((number, index) => console.log(index, number));
+
+//11.Joining Arrays (spajanje nizova) - .join method
+
+//.join method returnuje string !!!
+
+const spajanjeNiza = [1, 2, 3];
+const spojeno = spajanjeNiza.join(',');
+
+console.log(spajanjeNiza);//Vidi se da je niz [1,2,3]
+console.log(spojeno);//Prikazano kao string u konozoli 1,2,3
+
+/*ostoji i .split method koji je vezan za stringove (returnuje 
+array) */
+
+const poruuka = "Ovo je moja prva poruka";
+const deloviPoruke = poruuka.split(' ');
+//' ' - je separator koji zelimo da bude medju svakom reci (space npr.)
+
+console.log(deloviPoruke); //Bice 5 delova (svaka rec) i array je
+
+//Sad kad imamo array, mozemo koristiti .join method da spajamo
+
+const spojeniDeloviPoruke = deloviPoruke.join('-');
+//Odabrali smo - izmedju reci da bude npr. (vratice kao string)
+console.log(spojeniDeloviPoruke);
+
+/*Ovo je korisno kod pravljenja URL slug-ova (zadnji deo URL-a)
+jer u URL ne mogu da se stave space-ovi pa idu - takve crtice */
+
+//Crtica (-) - se zove hyphen !!!
+
+//12.Sorting Arrays - .sort method i .reverse !!!
+
+/*.sort method konvertuje svaki element u string i onda sortira
+elemente u array */
+
+const nesortiranNiz = [2, 3, 1];
+nesortiranNiz.sort();
+
+console.log(nesortiranNiz);//Bice [1,2,3] kao array prikazani
+
+/*.reverse method (sa njim slazemo elemenate unazad od veceg ka
+manjem u nizu) */
+
+nesortiranNiz.reverse();
+console.log(nesortiranNiz);//Bice [3,2,1]
+
+/*Ovo je lako kad imamo brojeve i stringove u nizu, a kad imamo
+objekte, onda ce morati jos da se dodaje */
+
+/*Primer sa objektima: Npr.da sortiramo po imenu objekta (tako 
+da JS dodje pre Node.js) */
+
+const itKursevi = [
+  { id: 1, imeKursa: 'Node.js'},
+  { id: 2, imeKursa: 'javaScript'},
+];
+
+/*Ako ukucam itKursevi.sort() i logujem, Node.js ce biti prvi, a
+nama treba na drugom mestu */
+
+//Treba ovako posloziti kod:
+
+itKursevi.sort(function(a, b) {
+  // a < b => -1
+  // a > b => 1
+  // a === b => 0
+
+  const imeKursaA = a.imeKursa.toLowerCase();
+  const imeKursaB = b.imeKursa.toLowerCase();
+
+  if (imeKursaA < imeKursaB) return -1;
+  if (imeKursaA > imeKursaB) return 1;
+  return 0;
+});
+
+console.log(itKursevi);
+
+/*Vrednosti se uzimaju po ASCII CODE, guglati to (npr. veliko 
+slovo J ima vr.74, a veliko N=78), pa vrednostima slaze, ali se
+javlja problem jer mala i velika slova nemaju istu vrednost */
+
+/*To bi trebalo resiti stavljanjem svih malih ili svih velikih
+slova npr. a.imeKursa.toUpperCase(); b.imeKursa.toUpperCase() 
+ili .toLowerCase(); */
+
+
+//CTRL+D replacuje sve sa istim imenom gde ga lociramo
+
+//13.Testing the Elements of an Array
