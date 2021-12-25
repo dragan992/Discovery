@@ -2785,4 +2785,59 @@ ili .toLowerCase(); */
 
 //CTRL+D replacuje sve sa istim imenom gde ga lociramo
 
-//13.Testing the Elements of an Array
+//13.Testing the Elements of an Array (.every and .some methods)
+
+/*Provericemo da li su svi elementi niza pozitivni brojevi
+.every method moze se koristiti za to */
+
+const daLiSuPozitivni = [1, 2, 3];
+
+const allPositive = daLiSuPozitivni.every(function(value){
+  return value >= 0;
+});
+
+/*Ovaj .every method ce pokrenuti f-ju (ovu iznad) na svaki 
+element niza [1,2,3] dok ne naidje na element koji ne odgovara
+kriterijumu (value => 0) i onda ce prestati */
+
+console.log(allPositive);
+
+/*True jer su svi pozitivni (ako ubacimo u niz -1 negde, bice false) */
+
+/*.some method proverava da li imamo bar jedan element u nizu
+koji odgovara zadatom kriterijumu */
+
+const poNekiPozitivan = [1, -1, 2, 3];
+
+const barNekiPozitivan = poNekiPozitivan.some(function(value){
+  return value >= 0;
+});
+
+console.log(barNekiPozitivan);
+
+/*CONCLUSION
+
+every() - checks to see if all elements in array matches the 
+given criteeria (are positive or whatever you want)
+
+some() - checks to see if we have at least one element that
+matches the given criteria */
+
+//14.Filtering an Array (filter array based on search criteria)
+
+//Recimo da hocemo da isfiltriramo samo pozitivne brojeve u nizu
+
+const svakakviBrojevi = [1, -1, 2, 3];
+
+const filterPozitivnihBr = svakakviBrojevi.filter(function(value) {
+  return value >= 0;
+});
+
+console.log(filterPozitivnihBr);
+
+/* Arrow function bi dobro dosao u gornjoj funkciji i ovako ide:
+
+const filter... = svakakviBrojevi.filter(value => value >= 0);
+
+console.log(filterPozitivnihBr); */
+
