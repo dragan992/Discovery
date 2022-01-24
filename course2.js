@@ -2912,3 +2912,73 @@ console.log(items);
 Bice isti rezultat kao i gore, a lepse izgleda.
 
 Ovo je moc chaininga */
+
+//16. Reducing an Array (Reduce method)
+
+/*Npr. hocemo da saberemo sve clanove nekog niza, mozemo to
+uraditi pomocu for loop-a */
+
+const saberiNiz = [1,-1, 2, 3];
+
+let suma = 0;
+for (let n of saberiNiz)
+  suma = suma + n; //isto sto i sum += n;
+
+console.log(suma); //Sabrace i bice 5
+
+
+/*Ovo isto se moze uraditi na laksi nacin sa .reduce methodom
+u array-ima */
+
+/* .reduce method pretvara sve elemente niza u single value 
+(number, string, object ...) i ima 2 argumenta (parametra) */
+
+//U ovom slucaju zelimo da pretvorimo sve brojeve iz niza u jedan
+
+/* .reduce method koristi callback funkciju sa 2 parametra (argumenta) 
+(accumulator (previous value) - to bi u ovom slucaju bila suma i
+currentValue - bi bio svaki broj ponaosob iz niza)) */
+
+//In each call we wanna get currentValue and add it to accumulator
+
+const zbirr = saberiNiz.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue; 
+},0);
+
+console.log(zbirr);
+
+/*Internally 2944 line of code, reduce method will get result
+(acc + currV) and store it in to accumulator, and we need to
+initialise accumulator to zero (0) - na kraju kao second 
+argument, a prvi argument je bila callback funkcija
+(sve od accumulator do } ) */
+
+/*Sa ovim .reduce methodom krecemo sa accumulator = 0, onda 
+loop-ujemo kroz array i konvertujemo sve elemente array-a u 
+single value (sto je u ovom slucaju accumulator - tj.zbir svih
+brojeva u ovom array-u), a evo kako to izgleda under the hood.
+
+accumulator = 0, currentValue = 1 => accumulator = 1
+accumulator = 1, currentValue = -1 => accumulator = 0
+accumulator = 0, currentValue = 2 => accumulator = 2
+accumulator = 2, currentValue = 3 => accumulator = 5 (krajnji br.) */
+
+/* Mozemo da iskljucimo inicijalizaciju accumulator-a, pa bi u
+tom slucaju accumulator bi dobio vrednost prvog elementa u nizu
+a to je 1, onda bi izgledalo ovako:
+
+accumulator = 1, currentValue = -1 => accumulator = 0
+accumulator = 0, currentValue = 2 => accumulator = 2
+accumulator = 2, currentValue = 3 => accumulator = 5 (opet)
+
+Ovo skracuje za jednu liniju koda, a mozemo se resiti i returna,
+pa bi kod na kraju izgledao skraceno ovako:
+
+
+const zbirr = saberiNiz.reduce((accumulator, currentValue) => accumulator + currentValue; 
+);
+
+console.log(zbirr);
+
+OVO JE NAJKRACA OPCIJA !!! */
+
