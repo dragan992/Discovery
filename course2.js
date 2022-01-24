@@ -1,3 +1,4 @@
+'use strict';
 var number = 5; //in-line comment
 
 /* this is a
@@ -330,7 +331,7 @@ console.log(duzinaStringa);
 //Bracket Notation (broj u zagradi []) - pronaci prvi karakter u reci npr.
 
 var prvoSlovoPrezimenaSjebac = "";
-prezime = "Radosavljevic";
+let prezime = "Radosavljevic";
 
 prvoSlovoPrezimenaSjebac = prezime[0];
 
@@ -341,7 +342,7 @@ console.log(prvoSlovoPrezimenaSjebac);
 //SVE "OBNOVLJENO"
 
 var mojePrezime = "Maric";
-mojePrezimeLength = mojePrezime.length;
+let mojePrezimeLength = mojePrezime.length;
 
 console.log(mojePrezimeLength);
 
@@ -351,7 +352,7 @@ console.log(mojePrezimeLength);
 
 var myStr3 = "Jello World";
 
-myStr3[0] = "H"; //Ovo nece promeniti slovo 
+// myStr3[0] = "H"; //Ovo nece promeniti slovo 
 
 myStr3 = "Hello World"  //Ovo hoce
 
@@ -367,17 +368,17 @@ isto kao i trazenje bilo kog slova u nizu [0]-za prvo slovo
   funkcije length */
 
 var imeProvajdera = "Mts";
-zadnjeSlovoImenaProvajdera = imeProvajdera[imeProvajdera.length - 1];
+let zadnjeSlovoImenaProvajdera = imeProvajdera[imeProvajdera.length - 1];
 
 console.log(zadnjeSlovoImenaProvajdera);
 
 var imeKomsije = "Goran";
-zadnjeSlovoImenaKomsije = imeKomsije[imeKomsije.length - 1];
+let zadnjeSlovoImenaKomsije = imeKomsije[imeKomsije.length - 1];
 
 console.log(zadnjeSlovoImenaKomsije);
 
 var prezimeKomsije = "Ivkovic";
-zadnjeSlovoPrezimenaKomsije = prezimeKomsije[prezimeKomsije.length - 1];
+let zadnjeSlovoPrezimenaKomsije = prezimeKomsije[prezimeKomsije.length - 1];
 
 console.log(zadnjeSlovoPrezimenaKomsije);
 
@@ -385,12 +386,12 @@ console.log(zadnjeSlovoPrezimenaKomsije);
 //Nacin da nadjes predzadnje slovo ili ono pre njega npr.
 
 var imeUbice = "nepoznat";
-predzadnjeSlovoImenaUbice = imeUbice[imeUbice.length - 2];
+let predzadnjeSlovoImenaUbice = imeUbice[imeUbice.length - 2];
 
 console.log(predzadnjeSlovoImenaUbice);
 
 var imeKera = "Dodzara";
-treceSlovoOdKrajaImenaKera = imeKera[imeKera.length - 3];
+let treceSlovoOdKrajaImenaKera = imeKera[imeKera.length - 3];
 
 console.log(treceSlovoOdKrajaImenaKera);
 
@@ -656,7 +657,7 @@ console.log('Aplikacija odbijena',applicationRefused);
 let dobraLova = true;
 let okKreditniSkor = false;
 
-pogodanZaKredu = dobraLova || okKreditniSkor;
+let pogodanZaKredu = dobraLova || okKreditniSkor;
 
 console.log(pogodanZaKredu);
 
@@ -1869,7 +1870,7 @@ var numerro = 10;
 function uvecanjee(numerro) {
   var srkii  = 101;
   
-  this.numerro++;
+  numerro++;
 }
 uvecanjee(numerro);
 console.log(numerro);
@@ -2841,3 +2842,73 @@ const filter... = svakakviBrojevi.filter(value => value >= 0);
 
 console.log(filterPozitivnihBr); */
 
+//15.Mapping an Array (map each item in an array to sth. else)
+
+//Mapiracemo svaki broj uz neki string npr. 
+
+let brojeviZaMapiranje = [1, -1, 2, 3];
+
+let filterBrojevaZaMapiranje = brojeviZaMapiranje.filter(n => n >= 0);
+
+let items = filterBrojevaZaMapiranje.map(n => `<li>${n}</li>`);
+
+let html = '<ul>'+items.join('') +'</ul>'; 
+
+
+console.log(items);//Bice kao array
+console.log(html);//Bice kao string
+
+/* We can use the map method to map each element in an Array
+into something else (numbers to strings, or to objects etc.) */
+
+//Primer 2. (mapiramo brojeve iz niza uz objekat)
+
+const brojici = [1, -1, 2, 3];
+
+const filtrirani = brojici.filter(n => n >= 0);
+
+const ajtemi = filtrirani.map(n => {
+  const obj = { value: n }; //ovde je moglo i samo return bez const obj (return { value: n}) i dole obrisem return
+  return obj;
+})
+
+console.log(ajtemi);//Returnuje 3 objekta i propertiji su brojevi
+
+/*Ako imamo single line of code, mozemo izbaciti return keyword
+pa su red 2869 i 2870 suvusni, a sve bi moglo da se kuca u 2868
+bez curly braces {} i return naravno
+
+const ajtemi = filtrirani.map(n => ({ value: n});
+
+Obavezno () okolo {}, jer {} prepoznaje kao blok koda i nece
+raditi bez ovih okolnih (), bice array sa 3 undefined elementa
+u tom slucaju */
+
+const skraceniAjtemi = filtrirani.map(n => ({ value: n}));
+
+console.log(skraceniAjtemi);
+
+/* .filter i .map methodi returnuju novi array (ne modifikuju
+originalni array i oni su chainable - mozemo ih pozvati one 
+after another i to se zove chaining)
+
+Primer chaininga:
+
+brojici.filter(n => n => 0).map(n => ({ value: n }));
+
+Po konvenciji kad radimo method chaining, kod treba da bude 
+u jednoj liniji.
+
+Npr.
+
+const items = numbers
+  .filter(n => n >= 0)
+  .map(n => ({value: n }));
+  .filter(obj => obj.value > 1) - dace 2 objekta sa vr. 2 i 3
+  .map(obj => obj.value) - mapiramo svaki objekat na number (2 i 3)
+
+console.log(items);
+
+Bice isti rezultat kao i gore, a lepse izgleda.
+
+Ovo je moc chaininga */
