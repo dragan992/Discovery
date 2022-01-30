@@ -576,7 +576,7 @@ q = q * 3;
 q *= 3;
 
 
-//3.COMPARISON operators (poredjenje varijable s necim)
+//4.COMPARISON operators (poredjenje varijable s necim)
 
 //Relational operators (odnosni operatori)
 
@@ -592,7 +592,7 @@ console.log(x === 1); //jednakost po tipu i vrednosti
 console.log(x !== 1);//ako zelimo utvrditi da x nije = 1
 
 
-//3a.EQUALITY operators (strict and lose equality operators )
+//5.EQUALITY operators (strict and lose equality operators )
 
 //Strict equality operator (Type + Value poredi) ===
 console.log(1 === 1); //Tip-number (ista), value-1 (ista)-true
@@ -607,7 +607,7 @@ console.log('1' == 1);//on ovo vidi kao ('1' == '1') i bice true
 console.log(true == 1);//konvertuje 1 u boolean (true = true)
 
 
-//3b. TERNERY operators (conditional-uslovni)
+//6. TERNERY operators (conditional-uslovni)
 
 /*Ako musterija ima preko 100 poena, imace 'gold' status,
 u drugom slucaju imace 'silver' status.*/
@@ -619,9 +619,9 @@ let tip = poeni > 100 ? 'gold' : 'silver'; //ZAPAMTITI OVAJ KORAK
 console.log(tip);
 
 
-//4.LOGICAL operators - with Non-booleans 
+//7.LOGICAL operators - with Non-booleans 
 
-//4a.Logical AND (&&) operator
+//7a.Logical AND (&&) operator
 //Returns TRUE if both operands are TRUE
 
 console.log(true && true); //bice true samo ako su oba true
@@ -634,7 +634,7 @@ let eligibleForLoan = highIncome && goodCreditScore;
 
 console.log(eligibleForLoan);//true
 
-//4b.Logical OR (||) operator
+//7b.Logical OR (||) operator
 //Returns TRUE if ONE of the operands is TRUE
 
 let visokPrihod = true;
@@ -644,7 +644,7 @@ let podobanZaKredit = visokPrihod || dobarKreditniSkor;
 console.log('Podoban', podobanZaKredit);//Bice true jer je dovoljan 1 true
 
 
-/*4c. NOT (!) operator - daje suprotnu vrednost od one 
+/*7c. NOT (!) operator - daje suprotnu vrednost od one 
 koju varijabla ima (ako je bilo true-bice false i obrnuto*/
 
 let applicationRefused = !podobanZaKredit;
@@ -665,7 +665,7 @@ let odbijenZaKredu = !pogodanZaKredu;
 
 console.log('Odbijen za kredit',odbijenZaKredu);//false
 
-//4d.NON boolean operators (Falsy and Truthy) - ne false or true!
+//8.NON boolean operators (Falsy and Truthy) - ne false or true!
 
 /*FALSY (false)-smatraju se kao false ali nisu false u logical
 expressionima (&& - i, || - ili ) :*/
@@ -708,7 +708,7 @@ console.log(staObuci);//sorc
  i logical operators (|| ili &&) u upotrebi sa njima */
 
 
-//5.BITWISE operators (RETKO SE KORISTE-SKORO NIKAD)
+//9.BITWISE operators (RETKO SE KORISTE-SKORO NIKAD)
 
 //Bitwise OR (|) vs Logical OR ( || )
 //Bitwise AND (&) vs Logical AND (&&)
@@ -766,7 +766,7 @@ console.log(message);
 /*Sa BITWISE OR (|) operatorom mozemo dati permission
 a sad BITWISE AND (&) mozemo proveriti imamo li permission*/
 
-//OPERATOR PRECEDENCE - prednost operatora
+//10.OPERATOR PRECEDENCE - prednost operatora
 //(when working with complex expressions)
 
 let k = 2 + 3 * 4; //14 - jer mnozenje ima prednost
@@ -2981,4 +2981,65 @@ const zbirr = saberiNiz.reduce((accumulator, currentValue) => accumulator + curr
 console.log(zbirr);
 
 OVO JE NAJKRACA OPCIJA !!! */
+
+
+//FUNCTIONS (7th chapter of the course)
+
+//1. Function Declarations vs Expressions
+
+//1a. Function Declaration - deklarisanje funkcije
+
+function walk() {
+  console.log('walk');
+} //Kad deklarisemo f-ju ovako, ovde ne stoji ; (po konvenciji)
+
+/*1b. Anonymous Function Expression, drugi nacin za deklarisanje
+funkcije */
+
+let run = function() { 
+  console.log('run');
+}; //A kad ovako, onda mora ; na kraju
+let move = run;
+run();
+move(); //Move isto poziva f-ju run i isti je rezultat
+
+//1c. Named Function Expression (funkcija sa imenom)
+
+let trcanje = function setnja() {
+  console.log('trcanje');
+};
+
+/*Znaci jedna od razlika izmedju Function Declaration-a i 
+Function Expression-a je sto kod prvog ne treba ; na kraju koda
+, a kod Function Expression-a treba */
+
+//2. Hoisting (INTERVIEW QUESTION)
+
+/* Hoisting is the process of moving FUNCTION DECLARATIONS TO 
+THE TOP OF FILE !!! (this is done automatically by the JS engine) */
+
+/*U praksi to znaci ako pozivamo funkciju kreiranu Function 
+Declaration nacinom, onda je mozemo pozvati u liniji koda iznad
+same deklaracije (pre nego sto je definisana) f-je i kod ce 
+raditi, a ako se radi o Function Expression-u i ako tu f-ju 
+pozovemo iznad (pre nego sto je definisana), a ne ispod
+deklaracije kod nece raditi, jer se Hoisting ne odnosi na 
+Function Expressione */
+
+//Primer sa Function Expression-om
+
+// console.log(proizvod);
+// let proizvod = automobil; - OVDE CE IZBACITI GRESKU
+
+//Primer sa Function Declaration-om
+
+sport();
+
+function sport() {
+  console.log('sport');
+}
+
+/* Vidi se da f-ja radi iako je pozvana pre nego sto smo je 
+deklarisali (declared) */
+
 
