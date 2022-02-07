@@ -3043,3 +3043,82 @@ function sport() {
 deklarisali (declared) */
 
 
+//3. Arguments (argumenti funkcije)
+
+/*Ranije smo ucili da je JS dynamic languague i da ako
+inicijalizujemo x = 1 (let x = 1), pa ispod odradimo 
+x = 'a'; automatski vrednost x ce postati string 'a'.
+
+To isto mozemo uraditi i sa argumentima funkcije
+
+Npr.napravicemo f-ju sum sa 2 parametra (a,b) */
+
+function sumica(a, b) {
+  return a + b;
+}
+
+console.log(sumica(1, 2)); //1 i 2 su argumenti
+
+/*Ako stavim samo 1, bice NaN - not a number, jer a ce
+biti 1, a b ce po defaultu biti undfined, takodje ako ne
+stavimo nista od argumenata u zagradu - ostavimo prazno, 
+opet ce biti NaN, ispod primer: */
+
+function nan(a, b) {
+  return a + b;
+}
+
+console.log(nan(1)); //U konzoli NaN kao sto smo rekli
+
+/*Takodje mozemo staviti koliko god hocemo argumenata, ali
+ce biti upotrebljeno samo onoliko argumenata koliko funkcija
+ima parametara, a u ovom slucaju to su 2 parametra (a, b) */
+
+function punoParametara(a, b) {
+  return a + b;
+}
+
+console.log(punoParametara(1, 2, 3, 4, 5));
+//Sabrace samo prva dva i dace rezultat 3
+
+/*U JS postoji special OBJECT koji se zove arguments !!!
+On izgleda kao array u konzoli, ali nije array vec OBJECT!
+
+Imamo prikaz svih argumenata (ovde od 1 do 5)
+Imamo callee (u konzoli) - returnuje funkciju o kojoj
+je rec
+Length property - pokazuje broj argumenata (ovde 5)
+
+Primer arguments object-a (gledati ishod u konzoli): */
+
+function argumentss(a, b) {
+  console.log(arguments);
+  return a + b;
+}
+
+console.log(argumentss(1, 2, 3, 4, 5));
+
+/*Ako zelimo da izmenimo ovu f-ju da returnuje sumu svih
+ovih argumenata (1, 2, 3, 4, 5), postoji jednostavan 
+algoritam (deklarisemo npr. total = 0), trebace nam for of
+loop (to iterate over arguments object)-for of loop 
+koristimo za array-e, ali moze se koristiti i za objekte 
+koji imaju iteratore (ovaj u konzoli ima Symbol.iterator),
+to znaci da ovaj objekat ima iterator i mozemo korititi
+for of loop to iterate over this object, pa za svaki 
+argument cemo uzeti tu vrednost i dodati je nasoj total
+varijabli (total += value;) i retutnovacemo total;.
+
+SVE OVO U KODU: */
+
+function saberi(a, b) {
+  let zbirno = 0;
+  for (let value of arguments)
+  zbirno += value;
+  return zbirno;
+}
+
+console.log(saberi(1, 2, 3, 4, 5));//Ako dodamo 10, bice 25
+
+/*Mozemo cak obrisati parametre (a, b) i sve ce lepo raditi! */
+
