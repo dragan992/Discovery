@@ -3122,3 +3122,82 @@ console.log(saberi(1, 2, 3, 4, 5));//Ako dodamo 10, bice 25
 
 /*Mozemo cak obrisati parametre (a, b) i sve ce lepo raditi! */
 
+//4. The Rest Operator (...) 
+
+/*Ne mesati ga sa Spread Operatorom (...) - looks the same,
+a on se koristi sa Array-ima da spreaduje Array kako bismo
+mogli da uzimamo njegove individualne elemente */
+
+/*U modernom JS-u ako zelimo funkciju sa vise parametara 
+(ono u zagradi nakon function name-a), mozemo koristiti 
+Rest operator (...) i on se moze koristiti samo zajedno sa
+parametrom f-je npr.(...arguments), takodje parametar sa
+rest operatorom (...) mora biti zadnji parametar, a pre
+njega moze ih biti koliko god, jer ce izbaciti gresku u 
+konzoli ako bude jos parametara posle njega */
+
+function restOperator (...args) {
+  console.log(args);
+}
+
+console.log(restOperator(1, 2, 3, 4, 5, 10));
+
+/*U konzoli cemo videti da je args an Array sa 6 argumenata
+(1, 2, 3, 4, 5, 10), a ako bismo obrisali (...) ispred args,
+to bi znacilo da f-ja ima jedan parametar tj.args i kad
+odradimo save, u konzoli izbacuje broj 1, a to je prvi 
+argument iz (1, 2, 3, 4, 5, 10).
+
+Primer sa 1 ide ispod: */
+
+function restOperator (args) {
+  console.log(args);
+}
+
+console.log(restOperator(1, 2, 3, 4, 5, 10));
+
+/*Sustina-kad primenjujemo Rest Operator uz parametar f-je, 
+onda mozemo dodati koliko god zelimo argumenata i Rest Op
+ce uzeti sve njih i staviti u Array!!! */
+
+/*Ako zelimo stare brojeve vratiti u Array, dodacemo
+reduce method (uz arrow function) */
+
+function restOperator1 (...argss) {
+ return argss.reduce((a, b) => a + b)
+}
+
+console.log(restOperator1(1, 2, 3, 4, 5, 10));
+
+/*3167 linija koda skracuje postupak umesto let total = 0, 
+pa koriscenje loop-a */
+
+/*Iskoristicemo ovu f-ju da saberemo racun za sve stavke 
+koje smo kupili u prodavnici i recimo da imamo 10% popusta
+na racun (0.1) */
+
+function shopping (discount, ...prices) {
+
+  const totanliZbir = prices.reduce((a, b) => a + b);
+  return totanliZbir * (1 - discount);
+}
+
+console.log(shopping(0.1, 20, 30)); //45$
+
+/*0.1 (10% popust) i 2 stvari (20 i 30$) dace finalni 
+rezultat 45$ */
+
+/*Ako dodamo jos jedan parametar iza ...prices izbacuje
+gresku i dole bi trebalo dodati (0.1, 20, 30, 1) npr 1. */
+
+// function shopping (discount, ...prices, someValue) {
+
+//   const totanliZbir = prices.reduce((a, b) => a + b);
+//   return totanliZbir * (1 - discount);
+// }
+
+// console.log(shopping(0.1, 20, 30, 1)); 
+
+/*Ovim dokazujemo receno da rest operator (parameter) -
+ovde je ...prices - rest parameter i on mora biti last
+parameter in the Function da bi sve radilo. */
