@@ -3201,3 +3201,53 @@ gresku i dole bi trebalo dodati (0.1, 20, 30, 1) npr 1. */
 /*Ovim dokazujemo receno da rest operator (parameter) -
 ovde je ...prices - rest parameter i on mora biti last
 parameter in the Function da bi sve radilo. */
+
+//5. Default Parameters (postavljanje default value-a)
+
+/*Kad npr. hocemo da izracunamo kolika nam je kamatna 
+na kredit u apsolutnom iznosu (inace je kamatna stopa 3,5%)*/
+
+function interest(principal, rate, years) {
+  return principal * rate / 100 * years;
+}
+
+console.log(interest(10000, 3.5, 5)); //1750$ kamata
+
+//Osnovica 10 000$, kamatna stopa 3,5% i redit na 5 godina
+
+/*Postavljanje default vrednosti npr.:
+
+Ako hocemo da kamatna stopa (ili osnovica, godine, stagod)
+bude onolika kolikom je definisemo ili 3,5% (stopa), 
+5 (godina) ukoliko ih ne definisemo ispisacemo:
+
+rate = rate || 3.5; 
+years = years || 5;
+
+We use logical OR operator || to give a variable a 
+default value !!! 
+
+I ako dole u console.log(interest) - ostavimo samo ovo
+bice okej jer smo gore predefinisali vrednosti, evo primer: */
+
+function kamatica(glavnica, stopa, trajanje) {
+  stopa = stopa || 3.5;
+  trajanje = trajanje || 5;
+  return glavnica * stopa / 100 * trajanje;
+}
+
+console.log(kamatica(10000)); //Bice isto 1750 !!!
+
+//JOS LAKSI NACIN I BOLJI ZA OVO ISTO:
+
+function najlaksaKamata(osnoviica, stopica = 3.5, godinice = 5) {
+  return osnoviica * stopica / 100 * godinice;
+}
+
+console.log(najlaksaKamata(10000)); //ISTI REZ 1750$ !!!
+
+/*AKO DAMO DEFAULT VALUE NEKOM PARAMETRU, OBAVENO MORAMO
+DATI I DEFAULT VALUE SVIM PARAMETRIMA KOJI SLEDE POSLE 
+NJEGA !!! Inace u konzoli cemo dobiti NaN (jer ovde bi
+godinice kao zadnji parametar bez vrednosti bio Undefined) !!! */
+
