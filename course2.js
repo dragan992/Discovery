@@ -3161,7 +3161,7 @@ onda mozemo dodati koliko god zelimo argumenata i Rest Op
 ce uzeti sve njih i staviti u Array!!! */
 
 /*Ako zelimo stare brojeve vratiti u Array, dodacemo
-reduce method (uz arrow function) */
+reduce method (uz arrow function =>) */
 
 function restOperator1 (...argss) {
  return argss.reduce((a, b) => a + b)
@@ -3213,7 +3213,7 @@ function interest(principal, rate, years) {
 
 console.log(interest(10000, 3.5, 5)); //1750$ kamata
 
-//Osnovica 10 000$, kamatna stopa 3,5% i redit na 5 godina
+//Osnovica 10 000$, kamatna stopa 3,5% i kredit na 5 godina
 
 /*Postavljanje default vrednosti npr.:
 
@@ -3246,8 +3246,100 @@ function najlaksaKamata(osnoviica, stopica = 3.5, godinice = 5) {
 
 console.log(najlaksaKamata(10000)); //ISTI REZ 1750$ !!!
 
-/*AKO DAMO DEFAULT VALUE NEKOM PARAMETRU, OBAVENO MORAMO
+/*AKO DAMO DEFAULT VALUE NEKOM PARAMETRU, OBAVEZNO MORAMO
 DATI I DEFAULT VALUE SVIM PARAMETRIMA KOJI SLEDE POSLE 
 NJEGA !!! Inace u konzoli cemo dobiti NaN (jer ovde bi
 godinice kao zadnji parametar bez vrednosti bio Undefined) !!! */
+
+//6. Getters and Setters (special kind of method)
+
+/*Ako zelimo npr. da prikazemo ime i prezime osobe koje
+cemo izvuci iz objekta 'personica', ima nekoliko nacina*/
+
+//1. Nacin i ishod Mosh Hamedani u konzoli
+
+const personica = {
+  prvoIme: 'Mosh',
+  prvoPrezime: 'Hamedani'
+};
+
+console.log(personica.prvoIme + " " + personica.prvoPrezime);
+
+/*2. Nacin sa istim ishodom (uz upotrebu Template Literala
+`${}` i unutra dodajemo argumente) */
+
+const personica1 = {
+  prvoIme: 'Moshara',
+  prvoPrezime: 'Hamedanara'
+};
+
+console.log(`${personica1.prvoIme} ${personica1.prvoPrezime}`);
+
+/*Problem s ovim pristupom je ako treba na vise mesta u
+aplikaciji da prikazemo necije ime i prezime, pa bismo u tom
+slucaju morali da ponavaljamo ovaj Template Literal na 
+mnogo mesta, BOLJI PRSTUP je da definisemo Method u ovom
+objektu (nazvacemo ga fullname) i ubacicemo ovaj expression
+odozdo iz console.log pa kad god pozelimo da prikazemo
+puno ime i prezime te osobe, jednostavno pozovemo taj metod*/
+
+//Varijanta sa fullName Methodom:
+
+const osobica = {
+  frstNejm: 'Pero',
+  lastNejm: 'Mikic',
+//fullName: function() {} - duza opcija koda (ispod kraca)
+  fullName() {
+    return `${osobica.frstNejm} ${osobica.lastNejm}`;
+  }
+};
+
+console.log(osobica.fullName()); //Ovo je Read Only !
+
+//Problemi sa ovim pristupom:
+
+/*Read Only znaci da ne mozemo uraditi 
+osobica.fullName = 'John Smit'; izvana jer kad bi moglo
+onda bi ime i prezime automatski bilo definisano bazirajuci
+se na to sto stavim iza znaka = */
+
+/*Zovemo ga kao method() i zato duple zagrade moraju
+console.log(osobica.fullName()); inace nece raditi),
+lakse bi bilo da mozemo da ga tretiramo kao 
+property - console.log(osobica.fullName); */
+
+//GETTERS AND SETTERS stupaju na scenu kao najbolji nacin:
+
+/*We use:
+
+1.GETTERS to ACCES PROPERTIES
+
+2.SETTERS to CHANGE or (mutate) them
+
+Dakle ovom objektu osobnica treba da dodamo GETTER i sa njim
+mozemo procitati osobica.fullName kao property, a sa 
+SETTER-om ga mozemo setovati spolja (from the outside) ili
+van scope-a (ako sam dobro razumeo). Kad ispred nekog
+Method-a stavimo get - on postaje GETTER, videcemo ispod,
+a takodje moramo dodati i set (SETTER) pa ga splitovati
+sa space-om u delove (partove) */
+
+const getterSetterOsoba = {
+  ime: 'Pero',
+  prezime: 'Mikic',
+  get punoImePrezime() {
+    return `${getterSetterOsoba.ime} ${getterSetterOsoba.prezime}`;
+  },
+  set punoImePrezime (value) {
+    const parts = value.split(' ');
+    this.ime = parts[0];
+    this.prezime = parts[1];
+  }
+};
+
+getterSetterOsoba.punoImePrezime = 'John Smith';
+
+console.log(getterSetterOsoba);
+
+//Deo sa SET bi bilo dobro da se rascisti (nije najjasnije)
 
