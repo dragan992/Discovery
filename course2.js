@@ -3341,5 +3341,63 @@ getterSetterOsoba.punoImePrezime = 'John Smith';
 
 console.log(getterSetterOsoba);
 
+//Value gore iznad je string (split method pripada stringovima)
 //Deo sa SET bi bilo dobro da se rascisti (nije najjasnije)
 
+//7. Try and Catch (hvatanje errora i exceptiona)
+
+/*Error i Exception su slicni ali ne potpono isti, ako npr.
+dole u getterSetterOsoba.punoImePrezime = null stavimo
+null ili boolean npr. umesto stringa (John Smith), izaci
+ce Error u konzoli*/
+
+//.split method pripada iskljucivo stringovima (nigde vise)
+
+/*Treba da dodamo Error handling na pocetku f-je ili
+Methoda i to se zove defensive programming, sa ciljem da 
+vidimo da li su vrednosti koje ubacujemo validne i u pravom
+obliku (string ili null ili boolean npr.),kako bi nasa
+logika u kodu mogla biti izvrsena (to se zove THROWING an
+Exception - ubacicemo throw keyword i kreirati new Error
+objekat koji ce biti constructor function - videce se 
+Pascal case notation, a kao argument cemo staviti 
+Error message npr. Value is not a string i tako se kreira
+exception). */
+
+/*Exception se nalazi u redu gde je vrednost = null; 
+exception treba da wrapujemo (okruzimo ga sa) u try blok
+(on moze da ima 1 ili vise stejtmenta od kojih bar jedan 
+treba da ima exception), nakon toga dodajemo catch blok 
+(dajemo mu identifier - to je error object koji smo 
+gore napravili (throw new Error('Value is not a string'))
+i mozemo ga logovati na konzolu ali to user nece videti, 
+tako da moramo da napravimo Alert da bi user video to u
+browseru (necemo logovati u konzoli iz tog razloga)
+
+/*Prvo cemo proveriti da li je value string (sa typeof) */
+
+const ljudina = {
+  ime: 'Nikola',
+  prezime: 'Kojo',
+  set celoIme (vrednost) {
+    if (typeof vrednost !== 'string') return;/*Bez ovog
+     greska (zbog null dole) */
+     throw new Error ('Vrednost nije string')
+
+    const delovi = vrednost.split(' ');
+    if (delovi.length !== 2)
+    throw new Error ('Upisi ime i prezime');
+
+    this.ime = delovi[0];
+    this.prezime = delovi[1];
+  }
+};
+
+try {
+ljudina.celoIme = null; //Ako stavim '' - bice alert
+}
+catch (e) {
+  alert(e);
+}
+
+//Ovo su osnove error handlinga u JS-u
