@@ -3401,3 +3401,84 @@ catch (e) {
 }
 
 //Ovo su osnove error handlinga u JS-u
+
+//8. Local vs Global Scope
+
+/*Scope odredjuje gde je neka konstanta (const) ili
+varijabla (var) accessible (odakle joj se moze pristupiti).
+
+Kada deklarisemo varijable i konstante sa let i const, 
+njihov scope je limitiran na blok koda u kom su definisani 
+{} - blok koda je oivicen ovim zagradama! 
+
+Kad deklarisemo varijablu ili konstantu van scope-a {},
+onda one imaju global scope i moze im se pristupiti bilo 
+odakle! Generalno treba izbegavati deklarisanje varijabli
+sa global scope-om (smatra se losom praksom)! */
+
+//Primer sa global scope-om
+
+const poruketina = 'Hello everybody';
+
+console.log(poruketina); //U konzoli izlazi poruketina
+
+/*Ako stavimo u scope - ovo isto odozgo ovako:
+
+{
+  const poruketina = 'Hello everybody';
+}
+console.log(poruketina);
+
+Izbacice gresku jer nije accessible kad je u scope-u !! */
+
+/*Ako se pitamo zasto nam treba ovaj code block gore, pa 
+moze se desiti da npr.bude deo funkcije pa bi bilo
+neminovno da se nadje u code blocku function () {} */
+
+/*Ako napravimo f-ju ili if block isti ce ishod biti
+
+function start() {
+  const probnaPoruka = 'Haj';
+}
+
+console.log(probnaPoruka); - greska u konzoli
+
+if (true) {
+  const another = 'Bye'
+}
+console.log(another) - ista stvar (greska)
+
+Ako pozovemo f-ju desice se ista stvar 
+
+start(); - another is not defined (ovo gore sve spada u 
+jednu funkciju!) */
+
+//Ovo se isto odnosi i na loop-ove
+
+for (let m = 0; m < 5; m++) {
+  console.log(m); //Ovo radi jer je in scope !!!
+}
+
+//console.log(m); //Ovo ne radi jer je van scope-a !!!
+
+//Primer sa global scope problemom i 2 funkcije
+
+const problematicnaBoja = 'crvena';
+
+function kreni() {
+  const pozdrav = 'Cao';
+  console.log(problematicnaBoja);//Kaze crvena (global scope)
+}
+
+function stani() {
+  const problematicnaBoja = 'plava';
+  const pozdrav = 'Zdravo' /*Ok je isti naziv (pozdrav)
+   jer je u 2 kod bloka */
+   console.log(problematicnaBoja);
+}
+
+kreni(); //U konzoli crvena prikazano
+
+stani();//Plava (jer je local scope dominantniji od global-a)
+
+//9. Let vs Var
