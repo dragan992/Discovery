@@ -3481,4 +3481,82 @@ kreni(); //U konzoli crvena prikazano
 
 stani();//Plava (jer je local scope dominantniji od global-a)
 
-//9. Let vs Var
+//9. Let vs Var (razlike izmedju ova 2)
+
+/*Sustinska razlika je u opsegu vazenja varijable.
+
+let i const podrzavaju lokalni opseg
+(unutar bloka koda - scope), npr. if uslov ako se definise:
+
+if (uslov) {
+  let i = 1;
+  console.log(i); - mora ovde biti da bi pokazalo u konzoli
+}
+
+console.log(i) - ako bude ovde izbacice gresku u konzoli
+
+Sto se tice var-a, ako njega definisemo unutar scope-a, 
+njemu mozemo pristupiti i izvan tog bloka koda (ali bi
+generalno var trebalo izbegavati jer moze da napravi 
+probleme - vuci ce ga svuda posle):
+
+if (true) {
+  var i = 1;
+}
+
+console.log(i); - prikazace ga u konzoli normalno skroz */
+
+/*Problem sa var je da nije limitiran na scope u kom je 
+definisan nego je limitiran na funkciju u kojoj je definisan
+a sad cemo i pokazati kako: */
+
+function pokreni() {
+  for (var i = 0; i < 5; i++)
+  console.log(i);
+
+  console.log(i);
+}
+
+pokreni();
+
+/*Znaci kad je var, onda je accessible outside of the for
+block (red 3517), a for block je (3514-3515) i PROBLEM sa 
+var je sto loop terminates (zaustavlja se) na vrednosti 4,
+a u liniji 3517 on prikazuje samu vrednost i (sto je = 5)
+i u konzoli je prikazano 5 (sto nema veze sa loop-om) !!! 
+
+Pre ES6 (ECMAScript6),var je bio jedini nacin da se
+definise varijabla i konstanta, a pocevsi sa ES (zovu ga i
+ES2015) imamo 2 nove keywords: let i const koje kreiraju
+block-scoped variables, a var kreira function-scoped
+variables
+
+var => function-scoped variables
+
+let, const => block-scoped variables (block of code) */
+
+/*Drugi problem sa var je kad ga koristimo van funkcije, 
+kreira se globalna varijabla (global variable) i attachuje
+tu varijablu u window object u browseru (koristi se u 
+konzoli i kad se prave frontend aplikacije koristi se 
+mnogo).
+
+Ako koristimo neku third party library, a u nasem window
+objectu smo sa var (mozda nehoticno) definisali varijablu
+koja se javlja isto u third party library npr. 
+var color = 'red', onda ce ova iz third party library da 
+overwrituje nasu varijablu i napravice pometnju i ZBOG
+TOGA treba da izbegavamo dodavanje stvari u WINDOW OBJECT!
+
+Sustina: izbegavati pravljenje varijabli sa var jer su one
+function-scoped a ne block-scoped.
+
+Zanimljivost: funkcije su isto attachowane u window object */
+
+
+function sayHi () {
+  console.log('hi');
+}
+
+/* U konzoli kucamo window.sayHi() i pokazace hi (dokaz) */
+
