@@ -3560,3 +3560,70 @@ function sayHi () {
 
 /* U konzoli kucamo window.sayHi() i pokazace hi (dokaz) */
 
+
+//10. The This Keyword (feature that confuses a lot of dev-s)
+
+/* What is THIS ? ? ?
+
+THIS references the OBJECT that is executing the current 
+function!!!
+
+Rule of thumb (pravila):
+
+1. If the function is part of an object, we call that 
+function a METHOD (ovo znamo) - ako je ovo slucaj
+(da je f-ja deo objekta tj. if it is a method in an
+object), THIS (keyword) references that
+object!!!
+
+Primer 1: napravicemo videoo (objekat) sa title properti-jem,
+i play method-om (funkcija  u objektu), logovacemo THIS
+u play method-u, zatim cemo pozvati play method
+(video.play()) i dobiti referenciran objekat u konzoli
+{title: 'a', play: f - function} - pokazuje sadrzaj
+objekta (zato sto je play funkcija u objektu video - tj.
+method) */
+
+const videoo = {
+  title: 'a',
+  play() {
+    console.log(this);
+  }
+};
+
+videoo.play();
+
+/*Primer 2: uradicemo isto sto i gore + naknadno 
+dodati jos jedan method (npr. stop) i dobicemo isti
+rezultat + bice u konzoli prikazan i stop method jer smo
+ga dodali!!! */
+
+const film = {
+  naslov: 'Umri muski',
+  pusti() {
+    console.log(this);
+  }
+};
+
+film.stop = function() {
+  console.log(this);
+}; //Ovo je isto method (stop method) u film objectu!
+
+//film.pusti(); ovo moze a i ne mora da se zakoment
+film.stop();
+
+
+/*2. Otherwise if that function is a regular function
+(when it is not part of an object) THIS references to
+GLOBAL OBJECT - which is the WINDOW OBJECT (in browsers),
+and GLOBAL (in Node).
+
+Primer:*/
+
+function playVideo() {
+ console.log(this);
+};
+
+playVideo(); /*Zbog 1.linije koda ('use strict'- ne radi,
+a kad se ona obrise, sve radi kako treba) */
+
