@@ -3618,12 +3618,102 @@ film.stop();
 GLOBAL OBJECT - which is the WINDOW OBJECT (in browsers),
 and GLOBAL (in Node).
 
-Primer:*/
+Primer: 1: */
 
 function playVideo() {
  console.log(this);
 };
 
 playVideo(); /*Zbog 1.linije koda ('use strict'- ne radi,
-a kad se ona obrise, sve radi kako treba) */
+a kad se ona obrise, sve radi kako treba - nappisace u 
+konzoli Window {postMessage: f, blur: f, focus: f, close: f,
+frames: Window, ...}) */
+
+/*Primer 2: (constructor function - we call constructor the
+functions using the NEW operator - and Pascal notation!) */
+
+function Viideo(title) {
+  this.title = title;
+  console.log(this);
+}
+
+const v = new Viideo('a'); /*constructor function for 
+new Viideo OBJECT ('a'- je title) i mora veliko V-Viideo
+
+Umesto window objecta (kao gore), sad dobijamo u konzoli 
+novi objekat koji nije isti kao onaj iz 3601 linije koda,
+ovo je skroz drugi objekat (jer new - pravi novi prazan
+objekat i usmerava this.title (3636 linija koda) na taj
+prazan objekat).
+
+ZAKLJUCAK:
+
+1. Kad radimo sa obicnom funkcijom, THIS po 
+defaultu referencira na GLOBALNI objekat (window object)!
+
+2. Kad zovemo funkciju pomocu NEW operatora (sto je slucaj
+kod CONSTRUCTOR functions), THIS ce referencirati na
+novi PRAZAN objekat {} !!! */
+
+/*Jos jedan primer slican video objektu, dodacemo jos jedan
+property (tags i bice array od 3 stringa - a, b, c),
+play method cemo promeniti u showTags, njemu dodamo this da
+pristupimo trenutnom objektu i dodamo tags property, dalje
+pozivamo forEach method (jer je u pitanju Array) i u zagradu
+ubacujemo callback funkciju - forEach(function(tag)) -
+jer u svakoj iteraciji funkcija ce dobiti tag i onda 
+prikazemo tag u konzoli - console.log(tag). Pozovemo f-ju
+video.showTags(); i dobicemo u konzoli a, b, c */
+
+const snimak = {
+  naslovna: 'a',
+  tags: ['a', 'b', 'c'],
+  showTags() {
+    this.tags.forEach(function(tag) {
+      console.log(tag);
+    });
+  }
+};
+
+snimak.showTags();
+
+/*A ako zelimo da prikazemo NASLOVNA uz svaki tags i
+dodamo this.naslovna u console.log, dobicemo UNDEFINED
+(jer THIS referencira WINDOW object), mi ocekujemo da
+referencira na SNIMAK -obect, a mi se nalazimo 
+unutar callback funkcije (function(tag {
+  console.log(this, tag);
+});
+jer ovde je rec o obicnoj funkciji, a ne o METHOD-u unutar
+SNIMAK objekta !!! Jedini METHOD koji imamo ovde je
+showTags(). I ZATO STO JE OVDE REC O REGULARNOJ FUNKCIJI,
+THIS REFERENCIRA NA WINDOW OBJECT !!!
+
+Resenje je: forEach method ima 2 parametra: 
+1. nasa callback funkcija - 
+(function(tag) {
+      console.log(tag);
+    });
+
+2. thisArg - tu (mozemo da pass-ujemo novi 
+objekat {firstName: 'Mosh'} i THIS ce referencirati taj
+objekat) - ovo necemo uraditi, nego cemo staviti THIS (jer
+zelimo snimak2 objekat a ne novi objekat), a mi se nalazimo
+u prikaziTagove method-u i THIS referencira na current
+OBJECT (tu vec nismo unutar callback f-je) jer smo i dalje
+u kontekstu pokaziTagove methoda (unutar njegovog scope-a)
+i kad dodamo u log (naslovna uz this.) dobicemo svaki
+naslov 'a' uz svaki tag: 'a', 'b', 'c' */
+
+const snimak2 = {
+  naslovna: 'a',
+  tags: ['a', 'b', 'c'],
+  pokaziTagove() {
+    this.tags.forEach(function(tag) {
+      console.log(this.naslovna, tag);
+    }, this); //{ firstIme: 'Mosh'}); - nema svrhu
+  }
+};
+
+snimak2.pokaziTagove();
 
