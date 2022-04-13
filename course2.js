@@ -3512,9 +3512,9 @@ a sad cemo i pokazati kako: */
 
 function pokreni() {
   for (var i = 0; i < 5; i++)
-  console.log(i);
+  console.log(i); //Pokazace 1-4 (loop)
 
-  console.log(i);
+  console.log(i); //Pokazece 5 (vrednost i = 5)
 }
 
 pokreni();
@@ -3717,3 +3717,131 @@ const snimak2 = {
 
 snimak2.pokaziTagove();
 
+/*11. Changing This (3 solutions to change value of 
+THIS in a function) */
+
+//Solutions: 
+
+//1. Using the SELF approach (const self = this;)
+/*2. Using the .bind method - call .bind and pass this as
+argument (.bind(this);) - old way of doing things (izbeci) */
+//3. Using the ARROW FUNCTION => (moderan nacin i najbolji)
+
+/*1. Solution (self approach):
+
+Zamislicemo da forEach method nema onaj drugi parametar 
+(this) - na kraju - ref 3714 i obrisacemo ga, a zatim cemo
+promeniti vrednost this-a tako sto cemo dodai konstantu 
+self i setovati je na = this;(neko stavlja i that = this;) 
+i u ovom momentu self referencira na snimak3 objekat, dalje
+u forEach method-u moramo promeniti isto na self - jer je
+to originalna vrednost this-a (posto ako ostane this, on
+bi referencirao na global object) */
+
+const snimak3 = {
+  naslovna: 'a',
+  tags: ['a', 'b', 'c'],
+  pokaziTagove() {
+    self = this;
+    this.tags.forEach(function(tag) {
+      console.log(self.naslovna, tag);
+    });
+  }
+};
+
+snimak3.pokaziTagove();
+
+/*Ishod ce biti isti kao i prethodno sa this - ovo nije 
+nacin koji treba da koristimo, ali se moze i dalje sresti
+na dosta mesta u JS aplikacijama i dalje pa je bitno da ga
+razumemo. */
+
+/*2. Solution - (call, apply) and BIND METHOD:
+
+Ranije u kursu ucili smo da su funkcije objekti u JS-u,
+definisacemo f-ju pustiVideo (koja je tehnicki u stvari 
+objekat) i ona i propertije i method-e kojima mozemo 
+pristupiti koriscenjem dot notation-a (.), neki od njih su
+(apply, bind i call) i sa njima mozemo promeniti vrednost
+this-a u ovoj funkciji*/
+
+/*CALL METHOD is the simpliest (first parameter is 
+thisArg) pa u njega mozemo pass-ovati objekat i this ce 
+referencirati na taj objekat (ubacimo objekat, sa 
+propertijem ime: 'Gagi') i u konozoli pokaze taj objekat!
+
+U suprotnom, ako pozovemo ovu funkciju na standardan nacin
+pustiVideo(); - this ce referencirati na window objekat i
+sad nam je jasniji benefit koriscenja CALL METHOD-a */
+
+/*APLLY METHOD - ono sto stavimo kao prvi argument bice 
+pass-ovano kao vrednost za this kao i kod call method-a,
+RAZLIKA u odnosu na CALL method je u pass-ovanju argumenata,
+(ako f-ja ima multiple parameters npr. (a, b), mozemo
+staviti multiple arguments npr. 1 i 2 KOD OBA method-a, 
+ali kod apply methoda oni moraju biti ARRAY [] !!!  */
+
+/*BIND METHOD - takodje je prvi argument ovde thisArg, pa
+mozemo opet pass-ovati objekat sa imenom, ali .bind method
+ne zove pustiVideo() funkciju, vec on RETURNUJE
+NEW FUNCTION i setuje this da pointuje na ovaj objekat 
+{ ime: "Gagi"} i to TRAJNO (no matter how we call that 
+function, THIS will ALWAYS point to that OBJECT !!!). 
+Odmah je mozemo pozvati sa (), nakon objekta !!!
+*/
+
+function pustiVideo(a, b) {
+  console.log(this);
+}
+
+pustiVideo.call({ ime: "Gagi" }, 1, 2);
+pustiVideo.apply({ ime: "Gagi" }, [1, 2]);
+pustiVideo.bind({ ime: "Gagi" })();
+
+
+pustiVideo(); //Undefined zbog "use strict" !!!
+
+/*3. Solution - ARROW FUNCTION => (the best way) !!!
+
+Vracamo se na predjasnju funkciju - promeili smo ime f-je,
+izbacujemo self = this; i menjamo u forEach method-u 
+na this.naslovna umesto self.naslovna. Ovde this. 
+referencira na global object (pa cemo ubaciti bind method)
+da bismo ubacili objekat koji ce se koristiti kao VALUE za
+THIS! A to ce biti drugo THIS (jer tu smo u pokaziTagove
+metodu) pa ce to drugo THIS referencirati na arrowFunkcija
+OBJEKAT !!! */
+
+
+const bindFunkcija = {
+  naslovna: 'a',
+  tags: ['a', 'b', 'c'],
+  pokaziTagove() {
+    this.tags.forEach(function(tag) {
+      console.log(this.naslovna, tag);
+    }.bind(this));
+  }
+};
+
+bindFunkcija.pokaziTagove();
+
+/*Arrow funkcija (starting from ES6 su se pojavile) i ona
+nasledjuje vrednost THIS-a. 
+
+Najlaksi nacin od svih: obrisacemo BIND i promenicemo f-ju
+(function) u ARROW function (=>) between the parameter and
+the body*/
+
+const arrowFunkcija = {
+  naslovna: 'a',
+  tags: ['a', 'b', 'c'],
+  pokaziTagove() {
+    this.tags.forEach(tag => {
+      console.log(this.naslovna, tag);
+    });
+  }
+};
+
+arrowFunkcija.pokaziTagove();
+
+//NAJBOLJI NACIN !!!
